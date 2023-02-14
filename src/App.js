@@ -1,24 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import AdvisorLogin from "./components/AdvisorLogin/AdvisorLogin";
+import AdvisorRegister from "./components/AdvisorRegister/AdvisorRegister";
+import ClientLogin from "./components/ClientLogin/ClientLogin";
+import Dashboard from "./components/Dashboard/Dashboard";
+import { Switch, Route } from "react-router-dom";
+import Home from "./components/Home/Home";
+import NavigationBar from "./components/NavigationBar/NavigationBar";
+import AdvisorDashboard from "./components/AdvisorDashboard/AdvisorDashboard";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <NavigationBar />
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route exact path="/AdvisorRegister" component={AdvisorRegister} />
+        <Route exact path="/AdvisorLogin" component={AdvisorLogin} />
+        <Route exact path="/ClientLogin" component={ClientLogin} />
+        <Route exact path="/Dashboard" component={AdvisorDashboard} />
+      </Switch>
+    </>
   );
 }
 
