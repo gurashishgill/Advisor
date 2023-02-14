@@ -8,18 +8,24 @@ function NavigationBar() {
   return (
     <Navbar collapseOnSelect expand="lg" bg="primary" variant="dark">
       <Container>
-        <Navbar.Brand href="/">Advisor Portal</Navbar.Brand>
+        <Navbar.Brand href="/">Home</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link href="Dashboard">Dashboard</Nav.Link>
-            <Nav.Link href="AdvisorRegister">Advisor Signup</Nav.Link>
-            <NavDropdown title="Sign In" id="collasible-nav-dropdown">
-              <NavDropdown.Item href="ClientLogin">
-                Signin as Client
-              </NavDropdown.Item>
+            {/* <Nav.Link href="AdvisorRegister">Advisor</Nav.Link> */}
+            <NavDropdown title="Advisor" id="collasible-nav-dropdown">
               <NavDropdown.Item href="AdvisorLogin">
-                Signin as Advisor
+                Sign in as Advisor
+              </NavDropdown.Item>
+              <NavDropdown.Item href="AdvisorRegister">
+                Sign up as Advisor
+              </NavDropdown.Item>
+            </NavDropdown>
+
+            <NavDropdown title="Client" id="collasible-nav-dropdown">
+              <NavDropdown.Item href="ClientLogin">
+                Sign in as Client
               </NavDropdown.Item>
             </NavDropdown>
           </Nav>
