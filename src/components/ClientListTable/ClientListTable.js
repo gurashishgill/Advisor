@@ -70,6 +70,11 @@ const columns = [
     dataField: "price",
     text: "Investment",
   },
+  {
+    text: "Options",
+    
+    
+  },
 ];
 
 function ClientListTable() {

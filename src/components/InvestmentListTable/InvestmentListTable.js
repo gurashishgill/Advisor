@@ -28,6 +28,9 @@ const columns = [
     dataField: "price",
     text: "Price",
   },
+  {
+     text: "Options",
+  },
 ];
 
 function InvestmentListTable() {

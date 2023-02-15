@@ -1,19 +1,11 @@
 .clienttable_button_container {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    margin-top: 15px;
+    justify-content: flex-end;
+    margin-top: 12px;
 }
 
-.clienttable_button_container button {
-    background-color: #FFDA29;
-    border: none;
-    color: #000000;
-    padding: 10px 20px;
-    font-size: 14px;
-    font-weight: 600;
-    border-radius: 5px;
-}
+
 .clientadd_submit_button{
     background-color: #0D6EFD;
         border: none;
@@ -31,4 +23,16 @@ background-color: #FF0000;
     font-size: 14px;
     font-weight: 600;
     border-radius: 5px;
+}
+.clienttable_button_container button {
+    background-color: #FFDA29;
+    border: none;
+    color: #000000;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 3px;
+    
+    
+    
 }
