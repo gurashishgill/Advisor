@@ -11,6 +11,7 @@ import { FaAddressBook } from "react-icons/fa";
 const Register = () => {
   return (
     <>
+    
       <div className="aregister_container">
         <div className="aregister_form_container">
           <form action="">
@@ -81,6 +82,7 @@ const Register = () => {
           </form>
         </div>
       </div>
+     
     </>
   );
 };

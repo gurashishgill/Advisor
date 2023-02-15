@@ -1,8 +1,11 @@
 .aregister_container {
     display: flex;
-    min-height: 100vh;
+   
+   min-height: 50vh;
     align-items: center;
     justify-content: center;
+    margin-top: 100px;
+   
 }
 
 .aregister_form_container {
@@ -69,6 +72,7 @@
     border-right: .5px solid gray;
     border-left: none;
 }
+
 
 .icon_container {
     display: flex;
