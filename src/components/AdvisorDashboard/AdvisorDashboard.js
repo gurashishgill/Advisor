@@ -14,9 +14,12 @@ function AdvisorDashboard() {
           <h1>
             Welcome, <span>Name</span>
           </h1>
-          <button>
-            Logout <BiLogOut />{" "}
-          </button>
+          <div>
+            <button>Add new Clinet</button>
+            <button>
+              Logout <BiLogOut />{" "}
+            </button>
+          </div>
         </div>
         <div className="dashboard_table">
           <Tabs
