@@ -15,9 +15,8 @@ function AdvisorDashboard() {
             Welcome, <span>Name</span>
           </h1>
           <div>
-            <button>Add new Client</button>
             <button>
-              Logout <BiLogOut />{" "}
+              Logout <BiLogOut />
             </button>
           </div>
         </div>
