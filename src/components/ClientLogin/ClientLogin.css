@@ -3,22 +3,15 @@
     min-height: 100vh;
     align-items: center;
     justify-content: center;
-    background-color: aliceblue;
-    
-    
-    
 }
 
 .clogin_form_conatiner {
-    min-width: 27vw;
-    min-height: 25vw;
+    min-width: 30%;
     display: flex;
     flex-direction: column;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     padding: 15px;
-    border-radius: 10px;
-   
-    
+    border-radius: 10px; 
 }
 
 .clogin_form_conatiner h2 {

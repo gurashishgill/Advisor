@@ -71,7 +71,8 @@ const columns = [
     text: "Investment",
   },
   {
-    text: "Options",
+    text: "Options:",
+    dataField: "options",
   },
 ];
 
@@ -80,11 +81,6 @@ function ClientListTable() {
 
   return (
     <>
-      <div className="clienttable_button_container">
-        <button onClick={() => setModalShow(true)}>
-          Add New Client <GrAdd />
-        </button>
-      </div>
       <BootstrapTable
         bootstrap4
         keyField="id"
@@ -98,7 +94,11 @@ function ClientListTable() {
           hideSizePerPage: true,
         })}
       />
-
+      <div className="clienttable_button_container">
+        <button onClick={() => setModalShow(true)}>
+          Add New Client <GrAdd />
+        </button>
+      </div>
       <AddClientModal show={modalShow} onHide={() => setModalShow(false)} />
     </>
   );
