@@ -7,8 +7,54 @@ const Home = () => {
   return (
     <>
       <div className="home_container">
+        <div className="row mx-0 mt-5" style={{ "paddingLeft": '60px' }} >
+
+          <div class="col-lg-6 d-lg-flex flex-lg-column justify-content-center align-items-stretch pt-5 pt-lg-0 order-2 order-lg-1 aos-init aos-animate" data-aos="fade-up">
+            <div>
+              <h1 className="home_main">We empower independent advisors</h1>
+              <p className="home_para">As a financial advisor, your clients have placed their futures in your hands. Advisor.com provides solutions and guidance to give that future the attention it deserves.</p>
+              <div className="home_button_container">
+                <button className="home_advisor_button">
+                  Sign up as Advisor
+                </button>
+                <button className="home_client_button">
+                  Sign up as Client
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6 d-lg-flex flex-lg-column align-items-stretch order-1 order-lg-2 hero-img aos-init aos-animate" data-aos="fade-up">
+            <img src="https://bootstrapmade.com/demo/templates/Appland/assets/img/hero-img.png" class="img-fluid" alt="" />
+          </div>
+
+
+
+
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      {/*
+
+      <div className="home_container">
         {/*contains the starting heading of the home*/}
-        <div className="home_heading">
+      {/*} <div className="home_heading">
           <div className="home_heading_container">
             <h1 className="home_main">We empower independent advisors</h1>
             <div className="home_sub">
@@ -28,9 +74,12 @@ const Home = () => {
             </div>
           </div>
         </div>
-        {/*2 para of the home*/}
 
-        <div className="home_heading_2">
+        */}
+      {/*2 para of the home*/}
+
+      {/*
+         <div className="home_heading_2">
           <div className="home_heading_2_container">
             <div className="home_card_left">
               <img src="https://images.unsplash.com/photo-1600880292089-90a7e086ee0c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80" />
@@ -104,7 +153,7 @@ const Home = () => {
             </div>
           </div>
         </div>
-
+         /*}
         {/* <div className="aregister_container">
           <div className="aregister_form_container">
             <form action="">
@@ -116,9 +165,9 @@ const Home = () => {
             </form>
           </div>
         </div> */}
-        {/*Contains the Advisor and Client blocks with rispective sign in and sign up*/}
+      {/*Contains the Advisor and Client blocks with rispective sign in and sign up*/}
 
-        {/* <div className="BLOCK_3">
+      {/* <div className="BLOCK_3">
           <div className="Aregister_container">
             <div className="Aregister_form_container">
               <form action="">
@@ -131,7 +180,7 @@ const Home = () => {
             </div>
           </div> */}
 
-        {/* <div className="Aregister_container">
+      {/* <div className="Aregister_container">
             <div className="Bregister_form_container">
               <form action="">
                 <h3>CLIENT ,</h3>
@@ -141,8 +190,8 @@ const Home = () => {
             </div>
           </div>
         </div> */}
-        {/*contains the about page,contact page of the home*/}
-        {/* <div className="Aregister_container">
+      {/*contains the about page,contact page of the home*/}
+      {/* <div className="Aregister_container">
           <div className="Cregister_form_container">
             <form action="">
               <h1 className="About"> About Page</h1>
@@ -220,8 +269,8 @@ const Home = () => {
             </form>
           </div>
         </div> */}
-      </div>
-      <Footer />
+      {/*</div>
+      {/*<Footer /> */ }
     </>
   );
 };
