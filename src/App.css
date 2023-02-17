@@ -6,6 +6,11 @@
     background-color: rgb(215, 214, 214);
 }
 
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 .sub-main {
     display: flex;
     justify-content: center;

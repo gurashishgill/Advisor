@@ -1,3 +1,156 @@
+.home_container{
+  /* display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; */
+  /* margin: 20px 0px 50px 50px; */
+  display: flex;
+  flex-direction: column;
+  /* width: 100%; */
+}
+
+.home_heading{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 90vh;
+  width: 100%;
+  background:url(https://7296445.fs1.hubspotusercontent-na1.net/hubfs/7296445/Design%20Assets/assetmark-angle-pattern-bg.png)
+}
+.home_heading_container{
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+}
+.home_main{
+  font-size: 54px;
+  color: #074a9b;
+}
+
+.home_para{
+  color: rgb(149, 143, 143);
+  
+}
+
+
+
+
+.home_heading_container h1{
+  font-size: 60px;
+  font-weight: 900;
+  letter-spacing: 5px;
+  text-align: center;
+}
+
+.home_sub{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.home_sub p {
+  font-size: 18px;
+  font-weight: 300;
+  text-align: center;
+}
+.home_button_container{
+  
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  margin-top: 30px;
+}
+.home_advisor_button{
+  margin-left: 40px;
+  padding: 10px 14px;
+  border: none;
+  border-radius: 5px;
+  font-size: 15px;
+  font-weight: 500;
+  background-color: #558bdc;
+  color: #ffffff;
+}
+.home_client_button {
+  margin-right: 180px;
+  padding: 10px 14px;
+  border: none;
+  border-radius: 5px;
+  font-size: 15px;
+  font-weight: 500;
+  background-color: #ffffff;
+  color: #558bdc;
+  border: 0.5px solid #558bdc;
+}
+.home_heading_2{
+  margin-top: 40px;
+}
+.home_card_left{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 60%;
+  padding: 20px;
+  margin-top: 40px;
+}
+
+.home_card_left img{
+  height: 420px;
+  margin-right: 40px;
+}
+
+.home_card_right {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  padding: 20px;
+  margin-top: 40px;
+}
+
+.home_card_right img {
+  height: 300px;
+  margin-right: 40px;
+}
+
+
+.home_card_left2 {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 60%;
+  padding: 20px;
+  margin-top: 40px;
+}
+
+.home_card_left2 img {
+  height: 240px;
+  margin-right: 40px;
+}
+
+.home_card_content{
+  text-align: justify;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .MAIN {
   display: flex;
   align-items: center;

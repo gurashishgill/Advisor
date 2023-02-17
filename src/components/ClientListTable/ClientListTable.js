@@ -80,11 +80,7 @@ function ClientListTable() {
 
   return (
     <>
-      <div className="clienttable_button_container">
-        <button onClick={() => setModalShow(true)}>
-          Add New Client <GrAdd />
-        </button>
-      </div>
+      
       <BootstrapTable
         bootstrap4
         keyField="id"
