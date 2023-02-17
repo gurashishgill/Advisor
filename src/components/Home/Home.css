@@ -3,9 +3,10 @@
   flex-direction: column;
   align-items: center;
   justify-content: center; */
+  /* margin: 20px 0px 50px 50px; */
   display: flex;
   flex-direction: column;
-  width: 100%;
+  /* width: 100%; */
 }
 
 .home_heading{
@@ -22,6 +23,18 @@
   display: flex;
   flex-direction: column;
 }
+.home_main{
+  font-size: 54px;
+  color: #558bdc;
+}
+
+.home_para{
+  color: rgb(149, 143, 143);
+  
+}
+
+
+
 
 .home_heading_container h1{
   font-size: 60px;
@@ -44,27 +57,30 @@
   text-align: center;
 }
 .home_button_container{
+  
   display: flex;
   align-items: center;
   justify-content: space-around;
   width: 100%;
-  margin-top: 20px;
+  margin-top: 30px;
 }
 .home_advisor_button{
+  margin-left: 40px;
   padding: 10px 14px;
   border: none;
   border-radius: 5px;
-  font-size: 18px;
-  font-weight: 800;
+  font-size: 15px;
+  font-weight: 500;
   background-color: #558bdc;
   color: #ffffff;
 }
 .home_client_button {
+  margin-right: 180px;
   padding: 10px 14px;
   border: none;
   border-radius: 5px;
-  font-size: 18px;
-  font-weight: 800;
+  font-size: 15px;
+  font-weight: 500;
   background-color: #ffffff;
   color: #558bdc;
   border: 0.5px solid #558bdc;
