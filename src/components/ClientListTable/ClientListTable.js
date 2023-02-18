@@ -2,10 +2,11 @@ import React, { useState } from "react";
 import paginationFactory from "react-bootstrap-table2-paginator";
 import BootstrapTable from "react-bootstrap-table-next";
 import "./ClientListTable.css";
-import { GrAdd } from "react-icons/gr";
 import Modal from "react-bootstrap/Modal";
 import { BsFillPersonFill } from "react-icons/bs";
 import { RiLockPasswordFill } from "react-icons/ri";
+import { MdModeEditOutline, MdDeleteOutline } from "react-icons/md";
+import { RxOpenInNewWindow } from "react-icons/rx";
 
 function AddClientModal(props) {
   return (
@@ -55,6 +56,49 @@ export const ClientsGenerator = (quantity) => {
 
 const clinets = ClientsGenerator(100);
 
+const customButton = (cell, row) => {
+  return (
+    <div className="custom_button_container">
+      <div
+        style={{
+          backgroundColor: "#0D6EFD",
+          color: "#ffffff",
+          fontSize: "20px",
+          padding: "2px 7px",
+          borderRadius: "5px",
+          cursor: "pointer",
+        }}
+      >
+        <RxOpenInNewWindow />
+      </div>
+      <div
+        style={{
+          backgroundColor: "#2ECA6A",
+          color: "#ffffff",
+          fontSize: "20px",
+          padding: "2px 7px",
+          borderRadius: "5px",
+          cursor: "pointer",
+        }}
+      >
+        <MdModeEditOutline />
+      </div>
+      <div
+        style={{
+          backgroundColor: "#FF0000",
+          color: "#ffffff",
+          fontSize: "20px",
+          padding: "2px 7px",
+          borderRadius: "5px",
+          cursor: "pointer",
+        }}
+      >
+        <MdDeleteOutline />
+      </div>
+    </div>
+  );
+};
+
 const columns = [
   {
     dataField: "id",
@@ -69,10 +113,12 @@ const columns = [
   {
     dataField: "price",
     text: "Investment",
+    sort: true,
   },
   {
-    text: "Options:",
-    dataField: "options",
+    dataField: "action",
+    text: "Actions",
+    formatter: customButton,
   },
 ];
 
@@ -81,6 +127,9 @@ function ClientListTable() {
 
   return (
     <>
+      <div className="clienttable_button_container">
+        <button onClick={() => setModalShow(true)}>Add New Client</button>
+      </div>
       <BootstrapTable
         bootstrap4
         keyField="id"
@@ -93,12 +142,7 @@ function ClientListTable() {
           sizePerPage: 5,
           hideSizePerPage: true,
         })}
-      />
-      <div className="clienttable_button_container">
-        <button onClick={() => setModalShow(true)}>
-          Add New Client <GrAdd />
-        </button>
-      </div>
+      ></BootstrapTable>
       <AddClientModal show={modalShow} onHide={() => setModalShow(false)} />
     </>
   );

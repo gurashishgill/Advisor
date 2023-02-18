@@ -7,6 +7,7 @@ import { Switch, Route } from "react-router-dom";
 import Home from "./components/Home/Home";
 import NavigationBar from "./components/NavigationBar/NavigationBar";
 import AdvisorDashboard from "./components/AdvisorDashboard/AdvisorDashboard";
+import AdvisorDashboard2 from "./components/AdvisorDashboard2/AdvisorDashboard2";
 
 function App() {
   return (
@@ -17,7 +18,7 @@ function App() {
         <Route exact path="/AdvisorRegister" component={AdvisorRegister} />
         <Route exact path="/AdvisorLogin" component={AdvisorLogin} />
         <Route exact path="/ClientLogin" component={ClientLogin} />
-        <Route exact path="/Dashboard" component={AdvisorDashboard} />
+        <Route exact path="/Dashboard" component={AdvisorDashboard2} />
       </Switch>
     </>
   );

@@ -1,19 +1,20 @@
 .clienttable_button_container {
     display: flex;
     align-items: center;
-    justify-content: flex-start;
-    margin-top: 12px;
+    justify-content: flex-end;
+    margin: 20px 0px;
+    color: #ffffff;
 }
 
 
 .clientadd_submit_button{
     background-color: #0D6EFD;
-        border: none;
-        color: #ffffff;
-        padding: 8px 20px;
-        font-size: 14px;
-        font-weight: 600;
-        border-radius: 5px;
+    border: none;
+    color: #ffffff;
+    padding: 8px 20px;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 5px;
 }
 .clientadd_close_button{
 background-color: #FF0000;
@@ -25,12 +26,17 @@ background-color: #FF0000;
     border-radius: 5px;
 }
 .clienttable_button_container button {
-    background-color: #FFDA29;
+    background-color: #0D6EFD;
+    color: #ffffff;
     border: none;
-    color: #000000;
     padding: 10px 20px;
     font-size: 14px;
     font-weight: 600;
-    border-radius: 3px;
-    
+    border-radius: 5px;
+}
+
+.custom_button_container{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
 }
