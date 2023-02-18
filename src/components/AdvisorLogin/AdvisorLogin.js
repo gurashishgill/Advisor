@@ -70,62 +70,137 @@ function AdvisorLogin() {
   };
 
   return (
-    <div className="alogin_container">
-      <div className="alogin_form_conatiner">
-        <form action="">
-          <div className="alogin_heading">
-            <h2>Sign In As Advisor</h2>
-          </div>
-
-          <div className="input_field_container">
-            <div className="input_field">
-              <div className="icon_container">
-                <BsFillPersonFill />
+    <div className="column">
+      <div className="row clogin_main">
+        <div
+          class="col-lg-6 d-lg-flex flex-lg-column justify-content-center align-items-stretch pt-5 pt-lg-0 order-2 order-lg-1 aos-init aos-animate"
+          data-aos="fade-up"
+        >
+          <div className="clogin_form_conatiner">
+            <form action="">
+              <div className="clogin_heading">
+                <h2>Sign In As Advisor</h2>
               </div>
-              <input
-                type="email"
-                placeholder="UserName"
-                id="UsertName"
-                value={Email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
-            </div>
-            <p className="error">{EmailError}</p>
-          </div>
 
-          <div className="input_field_container">
-            <div className="input_field">
-              <div className="icon_container">
-                <RiLockPasswordFill />
+              <div className="input_field_container">
+                <div className="input_field">
+                  <div className="icon_container">
+                    <BsFillPersonFill />
+                  </div>
+                  <input
+                    type="email"
+                    placeholder="UserName"
+                    id="UsertName"
+                    value={Email}
+                    onChange={(e) => setEmail(e.target.value)}
+                  />
+                </div>
+                <p className="error">{EmailError}</p>
               </div>
-              <input
-                type="password"
-                placeholder="Password"
-                id="Password"
-                value={Password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
-            </div>
-            <p className="error">{passError}</p>
-          </div>
 
-          <div className="alogin_button_container">
-            <div className="rememberme_container">
-              <input type="checkbox" />
-              <a href="https://www.google.com/">Remember Me</a>
-            </div>
+              <div className="input_field_container">
+                <div className="input_field">
+                  <div className="icon_container">
+                    <RiLockPasswordFill />
+                  </div>
+                  <input
+                    type="password"
+                    placeholder="Password"
+                    id="Password"
+                    value={Password}
+                    onChange={(e) => setPassword(e.target.value)}
+                  />
+                </div>
+                <p className="error">{passError}</p>
+              </div>
 
-            <button type="submit" onClick={handleLogin}>
-              SIGN IN
-            </button>
-          </div>
+              <div className="clogin_button_container">
+                <div className="rememberme_container">
+                  <input type="checkbox" />
+                  <a href="https://www.google.com/">Remember Me</a>
+                </div>
 
-          <div className="forgotPassword_container">
-            <a href="https://www.google.com/">Forgot Password</a>
+                <button type="submit" onClick={handleLogin}>
+                  SIGN IN
+                </button>
+              </div>
+
+              <div className="forgotPassword_container">
+                <a href="https://www.google.com/">Forgot Password</a>
+              </div>
+            </form>
           </div>
-        </form>
+        </div>
+
+        <div
+          class="col-lg-6 d-lg-flex flex-lg-column align-items-stretch order-1 order-lg-2 hero-img aos-init aos-animate"
+          data-aos="fade-up"
+        >
+          <img
+            src="https://img.freepik.com/free-vector/mobile-login-concept-illustration_114360-83.jpg?w=740&t=st=1676739972~exp=1676740572~hmac=744399e06e6b3ad60ea3e9a0c0a8d35582f9bc3efc9c4375856cd86ed67f66f1"
+            class="img-fluid"
+            alt=""
+            style={{ width: "85%" }}
+          />
+        </div>
       </div>
     </div>
+    // <div className="alogin_container">
+    //   <div className="alogin_form_conatiner">
+    //     <form action="">
+    //       <div className="alogin_heading">
+    //         <h2>Sign In As Advisor</h2>
+    //       </div>
+
+    //       <div className="input_field_container">
+    //         <div className="input_field">
+    //           <div className="icon_container">
+    //             <BsFillPersonFill />
+    //           </div>
+    //           <input
+    //             type="email"
+    //             placeholder="UserName"
+    //             id="UsertName"
+    //             value={Email}
+    //             onChange={(e) => setEmail(e.target.value)}
+    //           />
+    //         </div>
+    //         <p className="error">{EmailError}</p>
+    //       </div>
+
+    //       <div className="input_field_container">
+    //         <div className="input_field">
+    //           <div className="icon_container">
+    //             <RiLockPasswordFill />
+    //           </div>
+    //           <input
+    //             type="password"
+    //             placeholder="Password"
+    //             id="Password"
+    //             value={Password}
+    //             onChange={(e) => setPassword(e.target.value)}
+    //           />
+    //         </div>
+    //         <p className="error">{passError}</p>
+    //       </div>
+
+    //       <div className="alogin_button_container">
+    //         <div className="rememberme_container">
+    //           <input type="checkbox" />
+    //           <a href="https://www.google.com/">Remember Me</a>
+    //         </div>
+
+    //         <button type="submit" onClick={handleLogin}>
+    //           SIGN IN
+    //         </button>
+    //       </div>
+
+    //       <div className="forgotPassword_container">
+    //         <a href="https://www.google.com/">Forgot Password</a>
+    //       </div>
+    //     </form>
+    //   </div>
+    // </div>
   );
 }
 

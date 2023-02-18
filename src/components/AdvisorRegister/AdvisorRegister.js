@@ -131,189 +131,206 @@ const Register = () => {
   };
 
   return (
-    <>
-      <div className="aregister_container">
-        <div className="aregister_form_container">
-          <form action="">
-            <div className="aregister_heading">
-              <h2>Sign Up As Advisor</h2>
-            </div>
-            <div>
-              <div className="aregister_cover">
-                <div className="aregister_column">
-                  <div className="input_field_container">
-                    <div className="input_field">
-                      <div className="icon_container">
-                        <BsFillPersonFill />
+    <div className="column">
+      <div className="row clogin_main">
+        <div
+          class="col-lg-6 d-lg-flex flex-lg-column justify-content-center align-items-stretch pt-5 pt-lg-0 order-2 order-lg-1 aos-init aos-animate"
+          data-aos="fade-up"
+        >
+          <div className="clogin_form_conatiner">
+            <form action="">
+              <div className="aregister_heading">
+                <h2>Sign Up As Advisor</h2>
+              </div>
+              <div>
+                <div className="aregister_cover">
+                  <div className="aregister_column">
+                    <div className="input_field_container">
+                      <div className="input_field">
+                        <div className="icon_container">
+                          <BsFillPersonFill />
+                        </div>
+                        <input
+                          type="text"
+                          placeholder="FirstName"
+                          id="FirstName"
+                          value={FirstName}
+                          onChange={(e) => setFirstName(e.target.value)}
+                        />
                       </div>
-                      <input
-                        type="text"
-                        placeholder="FirstName"
-                        id="FirstName"
-                        value={FirstName}
-                        onChange={(e) => setFirstName(e.target.value)}
-                      />
-                    </div>
 
-                    <p className="error">{FnameError}</p>
-                  </div>
-                  <div className="input_field_container">
-                    <div className="input_field">
-                      <div className="icon_container">
-                        <AiFillPhone />
-                      </div>
-                      <input
-                        type="text"
-                        placeholder="Phone"
-                        id="Phone"
-                        value={Phone}
-                        onChange={(e) => setPhone(e.target.value)}
-                      />
+                      <p className="error">{FnameError}</p>
                     </div>
+                    <div className="input_field_container">
+                      <div className="input_field">
+                        <div className="icon_container">
+                          <AiFillPhone />
+                        </div>
+                        <input
+                          type="text"
+                          placeholder="Phone"
+                          id="Phone"
+                          value={Phone}
+                          onChange={(e) => setPhone(e.target.value)}
+                        />
+                      </div>
 
-                    <p className="error">{PhoneError}</p>
-                  </div>
-                  <div className="input_field_container">
-                    <div className="input_field">
-                      <div className="icon_container">
-                        <RiBuilding4Fill />
-                      </div>
-                      <input
-                        type="text"
-                        placeholder="Company"
-                        id="Comapny"
-                        value={Comapny}
-                        onChange={(e) => setCompany(e.target.value)}
-                      />
+                      <p className="error">{PhoneError}</p>
                     </div>
-                    <p className="error"></p>
-                  </div>
-                  <div className="input_field_container">
-                    <div className="input_field">
-                      <div className="icon_container">
-                        <FaTelegramPlane />
+                    <div className="input_field_container">
+                      <div className="input_field">
+                        <div className="icon_container">
+                          <RiBuilding4Fill />
+                        </div>
+                        <input
+                          type="text"
+                          placeholder="Company"
+                          id="Comapny"
+                          value={Comapny}
+                          onChange={(e) => setCompany(e.target.value)}
+                        />
                       </div>
-                      <input
-                        type="text"
-                        placeholder="State"
-                        id="State"
-                        value={State}
-                        onChange={(e) => setState(e.target.value)}
-                      />
+                      <p className="error"></p>
                     </div>
-                    <p className="error"></p>
-                  </div>
-                  <div className="input_field_container">
-                    <div className="input_field">
-                      <div className="icon_container">
-                        <RiLockPasswordFill />
+                    <div className="input_field_container">
+                      <div className="input_field">
+                        <div className="icon_container">
+                          <FaTelegramPlane />
+                        </div>
+                        <input
+                          type="text"
+                          placeholder="State"
+                          id="State"
+                          value={State}
+                          onChange={(e) => setState(e.target.value)}
+                        />
                       </div>
-                      <input
-                        type="password"
-                        placeholder="Password"
-                        id="Password"
-                        value={Password}
-                        onChange={(e) => setPassword(e.target.value)}
-                      />
+                      <p className="error"></p>
                     </div>
+                    <div className="input_field_container">
+                      <div className="input_field">
+                        <div className="icon_container">
+                          <RiLockPasswordFill />
+                        </div>
+                        <input
+                          type="password"
+                          placeholder="Password"
+                          id="Password"
+                          value={Password}
+                          onChange={(e) => setPassword(e.target.value)}
+                        />
+                      </div>
 
-                    <p className="error">{pass1Error}</p>
+                      <p className="error">{pass1Error}</p>
+                    </div>
                   </div>
-                </div>
 
-                <div className="aregister_column">
-                  <div className="input_field_container">
-                    <div className="input_field">
-                      <div className="icon_container">
-                        <BsFillPersonFill />
+                  <div className="aregister_column">
+                    <div className="input_field_container">
+                      <div className="input_field">
+                        <div className="icon_container">
+                          <BsFillPersonFill />
+                        </div>
+                        <input
+                          type="text"
+                          placeholder="LastName"
+                          id="LastName"
+                          value={LastName}
+                          onChange={(e) => setLastName(e.target.value)}
+                        />
                       </div>
-                      <input
-                        type="text"
-                        placeholder="LastName"
-                        id="LastName"
-                        value={LastName}
-                        onChange={(e) => setLastName(e.target.value)}
-                      />
-                    </div>
 
-                    <p className="error">{LnameError}</p>
-                  </div>
-                  <div className="input_field_container">
-                    <div className="input_field">
-                      <div className="icon_container">
-                        <AiTwotoneMail />
-                      </div>
-                      <input
-                        type="email"
-                        placeholder="Email"
-                        id="Email"
-                        value={Email}
-                        onChange={(e) => setEmail(e.target.value)}
-                      />
+                      <p className="error">{LnameError}</p>
                     </div>
+                    <div className="input_field_container">
+                      <div className="input_field">
+                        <div className="icon_container">
+                          <AiTwotoneMail />
+                        </div>
+                        <input
+                          type="email"
+                          placeholder="Email"
+                          id="Email"
+                          value={Email}
+                          onChange={(e) => setEmail(e.target.value)}
+                        />
+                      </div>
 
-                    <p className="error">{EmailError}</p>
-                  </div>
-                  <div className="input_field_container">
-                    <div className="input_field">
-                      <div className="icon_container">
-                        <HiLocationMarker />
-                      </div>
-                      <input
-                        type="text"
-                        placeholder="City"
-                        id="City"
-                        value={City}
-                        onChange={(e) => setCity(e.target.value)}
-                      />
+                      <p className="error">{EmailError}</p>
                     </div>
-                    <p className="error"></p>
-                  </div>
-                  <div className="input_field_container">
-                    <div className="input_field">
-                      <div className="icon_container">
-                        <FaAddressBook />
+                    <div className="input_field_container">
+                      <div className="input_field">
+                        <div className="icon_container">
+                          <HiLocationMarker />
+                        </div>
+                        <input
+                          type="text"
+                          placeholder="City"
+                          id="City"
+                          value={City}
+                          onChange={(e) => setCity(e.target.value)}
+                        />
                       </div>
-                      <input
-                        type="text"
-                        placeholder="Address"
-                        id="Address"
-                        value={Address}
-                        onChange={(e) => setAddress(e.target.value)}
-                      />
+                      <p className="error"></p>
                     </div>
-                    <p className="error"></p>
-                  </div>
-                  <div className="input_field_container">
-                    <div className="input_field">
-                      <div className="icon_container">
-                        <RiLockPasswordFill />
+                    <div className="input_field_container">
+                      <div className="input_field">
+                        <div className="icon_container">
+                          <FaAddressBook />
+                        </div>
+                        <input
+                          type="text"
+                          placeholder="Address"
+                          id="Address"
+                          value={Address}
+                          onChange={(e) => setAddress(e.target.value)}
+                        />
                       </div>
-                      <input
-                        type="password"
-                        placeholder="Confirm Passsword"
-                        id="ConfirmPassword"
-                        value={ConfirmPassword}
-                        onChange={(e) => setConfirmPassword(e.target.value)}
-                      />
+                      <p className="error"></p>
                     </div>
+                    <div className="input_field_container">
+                      <div className="input_field">
+                        <div className="icon_container">
+                          <RiLockPasswordFill />
+                        </div>
+                        <input
+                          type="password"
+                          placeholder="Confirm Passsword"
+                          id="ConfirmPassword"
+                          value={ConfirmPassword}
+                          onChange={(e) => setConfirmPassword(e.target.value)}
+                        />
+                      </div>
 
-                    <p className="error">
-                      {pass2Error} {passequalError}
-                    </p>
+                      <p className="error">
+                        {pass2Error} {passequalError}
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <div className="aregister_button_container">
-              <button type="submit" onClick={handleRegister}>
-                SIGN UP
-              </button>
-            </div>
-          </form>
+              <div className="aregister_button_container">
+                <button type="submit" onClick={handleRegister}>
+                  SIGN UP
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <div
+          class="col-lg-6 d-lg-flex flex-lg-column align-items-stretch order-1 order-lg-2 hero-img aos-init aos-animate"
+          data-aos="fade-up"
+        >
+          <img
+            src="https://img.freepik.com/free-vector/businessman-holding-pencil-big-complete-checklist-with-tick-marks_1150-35019.jpg?w=996&t=st=1676740665~exp=1676741265~hmac=73af938ab80b799ca7d713a4aa8dc1ee26797a6a6ac27891e8778636960a0de9"
+            class="img-fluid"
+            alt=""
+            style={{ width: "480px" }}
+          />
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
