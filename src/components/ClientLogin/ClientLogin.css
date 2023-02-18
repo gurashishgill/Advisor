@@ -4,18 +4,39 @@
     align-items: center;
     justify-content: center;
 }
+.column{
+    
+background-color: #ECF2FF;
+overflow: hidden;
+padding-left: 70px;
+}
+
+.clogin_main{
+    height: 460px;
+    width: 75% ;
+   /* margin-left: 10px;
+    margin-right: 50px;*/
+   
+    overflow: hidden; 
+     border-radius: 30px; 
+    box-shadow:rgba(0, 0, 0, 0.35) 0px 5px 15px ;
+    background-color: white;
+    padding-top: 15px; 
+    margin: 50px 120px 60px; 
+   
+}
 
 .clogin_form_conatiner {
     min-width: 30%;
     display: flex;
     flex-direction: column;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    padding: 15px;
+    /*box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;*/
+    padding: 70px;
     border-radius: 10px; 
 }
 
 .clogin_form_conatiner h2 {
-    font-size: 18px;
+    font-size: 1.5 rem;
 }
 
 .clogin_cover {
