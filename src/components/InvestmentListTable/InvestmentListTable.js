@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import paginationFactory from "react-bootstrap-table2-paginator";
 import BootstrapTable from "react-bootstrap-table-next";
 import "./InvestmentListTable.css";
+import { MdModeEditOutline, MdDeleteOutline } from "react-icons/md";
+import { RxOpenInNewWindow } from "react-icons/rx";
 
 export const InvestmentGenerator = (quantity) => {
   const items = [];
@@ -12,6 +14,49 @@ export const InvestmentGenerator = (quantity) => {
 };
 
 const investments = InvestmentGenerator(100);
+
+const customButton = (cell, row) => {
+  return (
+    <div className="custom_button_container">
+      <div
+        style={{
+          backgroundColor: "#0D6EFD",
+          color: "#ffffff",
+          fontSize: "20px",
+          padding: "2px 7px",
+          borderRadius: "5px",
+          cursor: "pointer",
+        }}
+      >
+        <RxOpenInNewWindow />
+      </div>
+      <div
+        style={{
+          backgroundColor: "#2ECA6A",
+          color: "#ffffff",
+          fontSize: "20px",
+          padding: "2px 7px",
+          borderRadius: "5px",
+          cursor: "pointer",
+        }}
+      >
+        <MdModeEditOutline />
+      </div>
+      <div
+        style={{
+          backgroundColor: "#FF0000",
+          color: "#ffffff",
+          fontSize: "20px",
+          padding: "2px 7px",
+          borderRadius: "5px",
+          cursor: "pointer",
+        }}
+      >
+        <MdDeleteOutline />
+      </div>
+    </div>
+  );
+};
 
 const columns = [
   {
@@ -26,16 +71,23 @@ const columns = [
   },
   {
     dataField: "price",
-    text: "Price",
+    text: "Investment Amount",
+    sort: true,
   },
   {
-     text: "Options",
+    dataField: "action",
+    text: "Actions",
+    formatter: customButton,
   },
 ];
 
 function InvestmentListTable() {
+  const [modalShow, setModalShow] = useState(false);
   return (
     <>
+      <div className="clienttable_button_container">
+        <button onClick={() => setModalShow(true)}>Add New Investment</button>
+      </div>
       <BootstrapTable
         bootstrap4
         keyField="id"
@@ -48,7 +100,8 @@ function InvestmentListTable() {
           sizePerPage: 5,
           hideSizePerPage: true,
         })}
-      />
+      ></BootstrapTable>
+      {/* <AddClientModal show={modalShow} onHide={() => setModalShow(false)} /> */}
     </>
   );
 }

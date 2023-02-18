@@ -38,7 +38,7 @@ class NavigationBar extends Component {
               className={this.state.clicked ? "#navbar active" : "#navbar"}
             >
               <li>
-                <a href="/" className="dropbar">
+                <a className="dropbar">
                   Login
                   <div className="Icon_container">
                     <IoMdArrowDropdown />
