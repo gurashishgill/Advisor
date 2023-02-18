@@ -1,36 +1,29 @@
-.clogin_container {
+.row{
     display: flex;
-    min-height: 100vh;
     align-items: center;
     justify-content: center;
 }
 .column{
-    
-background-color: #ECF2FF;
-overflow: hidden;
-padding-left: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 90vh;
 }
 
 .clogin_main{
-    height: 460px;
     width: 75% ;
-   /* margin-left: 10px;
-    margin-right: 50px;*/
-   
     overflow: hidden; 
-     border-radius: 30px; 
+    border-radius: 30px; 
     box-shadow:rgba(0, 0, 0, 0.35) 0px 5px 15px ;
     background-color: white;
     padding-top: 15px; 
     margin: 50px 120px 60px; 
-   
 }
 
 .clogin_form_conatiner {
     min-width: 30%;
     display: flex;
     flex-direction: column;
-    /*box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;*/
     padding: 70px;
     border-radius: 10px; 
 }
@@ -68,7 +61,7 @@ padding-left: 70px;
 }
 
 .clogin_button_container button {
-    background-color: #558bdc;
+    background-color: #0D6EFD;
     border: none;
     color: #ffffff;
     padding: 8px 20px;
@@ -96,7 +89,7 @@ padding-left: 70px;
     justify-content: center;
     padding: 0px 15px;
     height: 40px;
-    background-color: #558bdc;
+    background-color: #0D6EFD;
     color: #ffffff;
     font-size: 18px;
     border-top-left-radius: 5px;

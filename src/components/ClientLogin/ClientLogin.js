@@ -5,10 +5,12 @@ import "./ClientLogin.css";
 
 const ClientLogin = () => {
   return (
-
-    <div className="column " >
+    <div className="column">
       <div className="row clogin_main">
-        <div class="col-lg-6 d-lg-flex flex-lg-column justify-content-center align-items-stretch pt-5 pt-lg-0 order-2 order-lg-1 aos-init aos-animate" data-aos="fade-up">
+        <div
+          class="col-lg-6 d-lg-flex flex-lg-column justify-content-center align-items-stretch pt-5 pt-lg-0 order-2 order-lg-1 aos-init aos-animate"
+          data-aos="fade-up"
+        >
           <div className="clogin_form_conatiner">
             <form action="">
               <div className="clogin_heading">
@@ -43,37 +45,21 @@ const ClientLogin = () => {
               </div>
             </form>
           </div>
-
         </div>
 
-
-        <div class="col-lg-6 d-lg-flex flex-lg-column align-items-stretch order-1 order-lg-2 hero-img aos-init aos-animate" data-aos="fade-up">
-          <img src="https://bootstrapmade.com/demo/templates/Appland/assets/img/details-1.png" class="img-fluid" alt="" style={{ "width": '85%' }} />
-
+        <div
+          class="col-lg-6 d-lg-flex flex-lg-column align-items-stretch order-1 order-lg-2 hero-img aos-init aos-animate"
+          data-aos="fade-up"
+        >
+          <img
+            src="https://bootstrapmade.com/demo/templates/Appland/assets/img/details-1.png"
+            class="img-fluid"
+            alt=""
+            style={{ width: "400px" }}
+          />
         </div>
       </div>
-
     </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     /*<div className="clogin_container">
       <div className="clogin_form_conatiner">
