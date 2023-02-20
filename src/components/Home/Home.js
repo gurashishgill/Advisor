@@ -1,18 +1,23 @@
 import React from "react";
 import Footer from "../Footer/Footer";
-import NavigationBar from "../NavigationBar/NavigationBar";
 import "./Home.css";
 
 const Home = () => {
   return (
     <>
       <div className="home_container">
-        <div className="row mx-0 mt-5" style={{ "paddingLeft": '60px' }} >
-
-          <div class="col-lg-6 d-lg-flex flex-lg-column justify-content-center align-items-stretch pt-5 pt-lg-0 order-2 order-lg-1 aos-init aos-animate" data-aos="fade-up">
+        <div className="row mx-0 mt-5" style={{ paddingLeft: "60px" }}>
+          <div
+            class="col-lg-6 d-lg-flex flex-lg-column justify-content-center align-items-stretch pt-5 pt-lg-0 order-2 order-lg-1 aos-init aos-animate"
+            data-aos="fade-up"
+          >
             <div>
               <h1 className="home_main">We empower independent advisors</h1>
-              <p className="home_para">As a financial advisor, your clients have placed their futures in your hands. Advisor.com provides solutions and guidance to give that future the attention it deserves.</p>
+              <p className="home_para">
+                As a financial advisor, your clients have placed their futures
+                in your hands. Advisor.com provides solutions and guidance to
+                give that future the attention it deserves.
+              </p>
               <div className="home_button_container">
                 <button className="home_advisor_button">
                   Sign up as Advisor
@@ -24,31 +29,18 @@ const Home = () => {
             </div>
           </div>
 
-          <div class="col-lg-6 d-lg-flex flex-lg-column align-items-stretch order-1 order-lg-2 hero-img aos-init aos-animate" data-aos="fade-up">
-            <img src="https://bootstrapmade.com/demo/templates/Appland/assets/img/hero-img.png" class="img-fluid" alt="" />
+          <div
+            class="col-lg-6 d-lg-flex flex-lg-column align-items-stretch order-1 order-lg-2 hero-img aos-init aos-animate"
+            data-aos="fade-up"
+          >
+            <img
+              src="https://bootstrapmade.com/demo/templates/Appland/assets/img/hero-img.png"
+              class="img-fluid"
+              alt=""
+            />
           </div>
-
-
-
-
         </div>
       </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
       {/*
 
@@ -270,7 +262,7 @@ const Home = () => {
           </div>
         </div> */}
       {/*</div>
-      {/*<Footer /> */ }
+      {/*<Footer /> */}
     </>
   );
 };

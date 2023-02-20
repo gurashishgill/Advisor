@@ -1,73 +1,66 @@
-import React, { Component } from "react";
-import "./NavigationBar.css";
-import { IoMdArrowDropdown } from "react-icons/io";
-class NavigationBar extends Component {
-  state = { clicked: false };
-  handleClick = () => {
-    this.setState({ clicked: !this.state.clicked });
-  };
-  render() {
-    return (
-      <>
-        <nav>
-          <a href="index.html">
-            <svg
-              id="logo-35"
-              width="50"
-              height="39"
-              viewBox="0 0 50 39"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              {" "}
-              <path
-                d="M16.4992 2H37.5808L22.0816 24.9729H1L16.4992 2Z"
-                class="ccompli1"
-                fill="#007AFF"
-              ></path>{" "}
-              <path
-                d="M17.4224 27.102L11.4192 36H33.5008L49 13.0271H32.7024L23.2064 27.102H17.4224Z"
-                class="ccustom"
-                fill="#312ECB"
-              ></path>{" "}
-            </svg>
-          </a>
-          <div>
-            <ul
-              id="navbar"
-              className={this.state.clicked ? "#navbar active" : "#navbar"}
-            >
-              <li>
-                <a className="dropbar">
-                  Login
-                  <div className="Icon_container">
-                    <IoMdArrowDropdown />
-                  </div>
-                </a>
-                <ul className="dropdown">
-                  <li>
-                    <a href="/AdvisorLogin">AdvisorLogin</a>
-                  </li>
-                  <li>
-                    <a href="/ClientLogin">ClientLogin</a>
-                  </li>
-                </ul>
-              </li>
-              <li>
-                <a href="/AdvisorRegister">SignUp</a>
-              </li>
-            </ul>
-          </div>
-          <div id="mobile" onClick={this.handleClick}>
-            <i
-              id="bar"
-              className={this.state.clicked ? "fas fa-times" : "fas fa-bars"}
-            ></i>
-          </div>
-        </nav>
-      </>
-    );
-  }
-}
+import React, { useEffect, useState } from "react";
+import Button from "react-bootstrap/Button";
+import Container from "react-bootstrap/Container";
+import Form from "react-bootstrap/Form";
+import Nav from "react-bootstrap/Nav";
+import Navbar from "react-bootstrap/Navbar";
+import NavDropdown from "react-bootstrap/NavDropdown";
+import logo from "../../assets/logo.png";
+import "./Navigationbar.css";
+import { useHistory } from "react-router-dom";
+import { FiLogOut } from "react-icons/fi";
 
+function NavigationBar() {
+  const history = useHistory();
+
+  let userData = JSON.parse(localStorage.getItem("user"));
+
+  const handleLogout = () => {
+    localStorage.removeItem("user");
+    history.push("/");
+  };
+
+  return (
+    <Navbar bg="dark" variant="dark" expand="lg">
+      <Container fluid>
+        <Navbar.Brand href="/">
+          <img src={logo} style={{ height: "40px" }} />
+        </Navbar.Brand>
+        <Navbar.Toggle aria-controls="navbarScroll" />
+        <Navbar.Collapse id="navbarScroll">
+          <Nav
+            className="me-auto my-2 my-lg-0"
+            // style={{ maxHeight: "100px" }}
+            navbarScroll
+          >
+            {userData === null ? (
+              <>
+                <Nav.Link href="/">Home</Nav.Link>
+                <Nav.Link href="/about">About Us</Nav.Link>
+                <NavDropdown title="Login" id="navbarScrollingDropdown">
+                  <NavDropdown.Item href="/AdvisorLogin">
+                    Login as Advisor
+                  </NavDropdown.Item>
+                  <NavDropdown.Divider />
+                  <NavDropdown.Item href="/ClientLogin">
+                    Login as Client
+                  </NavDropdown.Item>
+                </NavDropdown>
+                <Nav.Link href="/AdvisorRegister">Signup</Nav.Link>
+              </>
+            ) : (
+              <>
+                <Nav.Link href="/">Home</Nav.Link>
+                <Nav.Link href="/about">About Us</Nav.Link>
+                <Nav.Link className="logout_button" onClick={handleLogout}>
+                  Logout <FiLogOut />
+                </Nav.Link>
+              </>
+            )}
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
+  );
+}
 export default NavigationBar;

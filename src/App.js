@@ -2,17 +2,15 @@ import "./App.css";
 import AdvisorLogin from "./components/AdvisorLogin/AdvisorLogin";
 import AdvisorRegister from "./components/AdvisorRegister/AdvisorRegister";
 import ClientLogin from "./components/ClientLogin/ClientLogin";
-import Dashboard from "./components/Dashboard/Dashboard";
 import { Switch, Route } from "react-router-dom";
 import Home from "./components/Home/Home";
-import NavigationBar from "./components/NavigationBar/NavigationBar";
-import AdvisorDashboard from "./components/AdvisorDashboard/AdvisorDashboard";
 import AdvisorDashboard2 from "./components/AdvisorDashboard2/AdvisorDashboard2";
+import Navigationbar from "./components/Navigationbar/Navigationbar";
 
 function App() {
   return (
     <>
-      <NavigationBar />
+      <Navigationbar />
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/AdvisorRegister" component={AdvisorRegister} />

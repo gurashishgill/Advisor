@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./AdvisorDashboard2.css";
 import { FiUsers } from "react-icons/fi";
 import { TfiMoney } from "react-icons/tfi";
@@ -7,8 +7,16 @@ import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import ClientListTable from "../ClientListTable/ClientListTable";
 import InvesmentListTable from "../InvestmentListTable/InvestmentListTable";
+import { useHistory } from "react-router-dom";
 
 function AdvisorDashboard2() {
+  const history = useHistory();
+  useEffect(() => {
+    const userData = JSON.parse(localStorage.getItem("user"));
+    if (userData === null) {
+      history.push("/AdvisorLogin");
+    }
+  });
   return (
     <div className="dashboard2">
       <div className="dashboard2_container">
