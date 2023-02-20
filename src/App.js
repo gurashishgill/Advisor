@@ -5,12 +5,12 @@ import ClientLogin from "./components/ClientLogin/ClientLogin";
 import { Switch, Route } from "react-router-dom";
 import Home from "./components/Home/Home";
 import AdvisorDashboard2 from "./components/AdvisorDashboard2/AdvisorDashboard2";
-import Navigationbar from "./components/Navigationbar/Navigationbar";
+import NavigationBar from "./components/Navigationbar/NavigationBar";
 
 function App() {
   return (
     <>
-      <Navigationbar />
+      <NavigationBar />
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/AdvisorRegister" component={AdvisorRegister} />
