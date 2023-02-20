@@ -295,7 +295,7 @@ const Register = () => {
                         </div>
                         <input
                           type="password"
-                          placeholder="Confirm Passsword"
+                          placeholder="Confirm Password"
                           id="ConfirmPassword"
                           value={ConfirmPassword}
                           onChange={(e) => setConfirmPassword(e.target.value)}

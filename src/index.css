@@ -5,3 +5,27 @@
     text-decoration: none;
     font-family: 'Roboto', sans-serif;
 }
+
+html{
+    font-size: calc(1.12 rem + 1vh);
+}
+
+div{
+    font-size: calc(1.12 rem + 1vh);
+}
+h1{
+    font-size: calc(1.12 rem + 1vh);
+}
+h2{
+    font-size: calc(1.12 rem + 1vh);
+}
+input{
+    font-size: calc(1.12 rem + 1vh);
+}
+p{
+    font-size: 1.12rem;
+    font-size: calc(1.12 rem + 1vh);
+}
+button{
+    font-size: calc(1.23rem + 1vh);
+}

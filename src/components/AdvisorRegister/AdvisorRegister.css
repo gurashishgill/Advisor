@@ -7,6 +7,7 @@
    
 }
 
+
 .aregister_form_container {
     min-width: 30%;
     display: flex;
@@ -95,3 +96,15 @@
     font-weight: 300;
     color: red;
 }
+
+@media (max-width:993px){
+    .img-fluid{
+        width: 25%;
+        height: 35%;
+      margin-bottom: -20%;
+      
+    }
+}
+
+
+
