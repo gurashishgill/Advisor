@@ -5,6 +5,11 @@
     margin: 20px 0px;
     color: #ffffff;
 }
+@media (max-width:590px){
+    .contained-modal-title-vcenter{
+        margin-right: -100%;
+    }
+}
 
 
 .clientadd_submit_button{
