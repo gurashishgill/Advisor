@@ -24,12 +24,16 @@
   flex-direction: column;
 }
 .home_main{
-  font-size: 54px;
+  font-size: 2.85rem;
+  font-weight: 600;
   color: #558bdc;
+  
 }
 
 .home_para{
   color: rgb(149, 143, 143);
+  font-style: italic;
+  font-weight: 500;
   
 }
 
@@ -137,6 +141,7 @@
   text-align: justify;
 }
 
+
 @media (max-width: 995px){
   .img-fluid{
     margin-left: 25%;
@@ -147,8 +152,36 @@
   .home_main{
     margin-top: 20%;
   }
+}
+
+@media (max-width:1150px){
+  .home_client_button{
+     margin-left: 20%;
+     
+  }
+}
+@media (max-width:400px){
+  .img-fluid{
+    margin-left: 0%;
+    display: flex;
+    align-items: center;
+    margin-right: 20%;
+
+    width: 70%;
+    height: 80%;    
+  }
+  .home_main{
+    margin-top: 50px;
+  } 
+  .home_button_container{
+    margin-left: 10%;
+  }
   
-  
+}
+@media (max-width:295px){
+  .home_button_container{
+    margin-left: 40%;
+  }
 }
 
 

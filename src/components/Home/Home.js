@@ -12,7 +12,7 @@ const Home = () => {
             data-aos="fade-up"
           >
             <div>
-              <h1 className="home_main">We empower independent advisors</h1>
+              <h1 className="home_main">We Empower Independent Advisors</h1>
               <p className="home_para">
                 As a financial advisor, your clients have placed their futures
                 in your hands. Advisor.com provides solutions and guidance to
