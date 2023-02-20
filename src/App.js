@@ -5,7 +5,7 @@ import ClientLogin from "./components/ClientLogin/ClientLogin";
 import { Switch, Route } from "react-router-dom";
 import Home from "./components/Home/Home";
 import AdvisorDashboard2 from "./components/AdvisorDashboard2/AdvisorDashboard2";
-import NavigationBar from "./components/Navigationbar/NavigationBar";
+import NavigationBar from "./components/NavigationBar/NavigationBar";
 
 function App() {
   return (
