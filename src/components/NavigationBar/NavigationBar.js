@@ -10,7 +10,7 @@ class NavigationBar extends Component {
     return (
       <>
         <nav>
-          <a href="index.html">
+          <a href="/">
             <svg
               id="logo-35"
               width="50"
