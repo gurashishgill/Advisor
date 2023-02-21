@@ -23,7 +23,7 @@ const Home = () => {
                   Sign up as Advisor
                 </button>
                 <button className="home_client_button">
-                  Sign in as Client
+                  Sign Up as Client
                 </button>
               </div>
             </div>
