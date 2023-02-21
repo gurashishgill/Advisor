@@ -131,20 +131,21 @@ const Register = () => {
   };
 
   return (
-    <div className="column">
-      <div className="row clogin_main">
+    <>
+      <div className="advisor_register_container">
         <div
-          class="col-lg-6 d-lg-flex flex-lg-column justify-content-center align-items-stretch pt-5 pt-lg-0 order-2 order-lg-1 aos-init aos-animate"
-          data-aos="fade-up"
+          className="advisor_register_content"
+          // class="col-lg-6 d-lg-flex flex-lg-column justify-content-center align-items-stretch pt-5 pt-lg-0 order-2 order-lg-1 aos-init aos-animate"
+          // data-aos="fade-up"
         >
-          <div className="clogin_form_conatiner">
+          <div className="advisor_register_form_conatiner">
             <form action="">
-              <div className="aregister_heading">
+              <div className="advisor_register_heading">
                 <h2>Sign Up As Advisor</h2>
               </div>
               <div>
-                <div className="aregister_cover">
-                  <div className="aregister_column">
+                <div className="advisor_register_cover">
+                  <div className="advisor_register_column">
                     <div className="input_field_container">
                       <div className="input_field">
                         <div className="icon_container">
@@ -225,7 +226,7 @@ const Register = () => {
                     </div>
                   </div>
 
-                  <div className="aregister_column">
+                  <div className="advisor_register_column">
                     <div className="input_field_container">
                       <div className="input_field">
                         <div className="icon_container">
@@ -309,7 +310,7 @@ const Register = () => {
                   </div>
                 </div>
               </div>
-              <div className="aregister_button_container">
+              <div className="advisor_register_button_container">
                 <button type="submit" onClick={handleRegister}>
                   SIGN UP
                 </button>
@@ -319,18 +320,19 @@ const Register = () => {
         </div>
 
         <div
-          class="col-lg-6 d-lg-flex flex-lg-column align-items-stretch order-1 order-lg-2 hero-img aos-init aos-animate"
-          data-aos="fade-up"
+          className="advisor_register_image"
+          // class="col-lg-6 d-lg-flex flex-lg-column align-items-stretch order-1 order-lg-2 hero-img aos-init aos-animate"
+          // data-aos="fade-up"
         >
           <img
             src="https://img.freepik.com/free-vector/businessman-holding-pencil-big-complete-checklist-with-tick-marks_1150-35019.jpg?w=996&t=st=1676740665~exp=1676741265~hmac=73af938ab80b799ca7d713a4aa8dc1ee26797a6a6ac27891e8778636960a0de9"
-            class="img-fluid"
-            alt=""
-            style={{ width: "480px" }}
+            // class="img-fluid"
+            alt="register-image"
+            // style={{ width: "480px" }}
           />
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

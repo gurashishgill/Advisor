@@ -12,3 +12,26 @@
     color: #FFFFFF;
     background-color: #DC3545;
 }
+.nav_container{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.nav_item_2{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media screen and (max-width: 991px) {
+    .nav_item_1{
+        display: none;
+    }
+    .nav_container{
+        align-items: flex-start;
+    }
+    .nav_item_2 {
+        flex-direction: column;
+    }
+}

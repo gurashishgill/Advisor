@@ -5,15 +5,16 @@ import "./ClientLogin.css";
 
 const ClientLogin = () => {
   return (
-    <div className="column">
-      <div className="row clogin_main">
+    <>
+      <div className="client_login_container">
         <div
-          class="col-lg-6 d-lg-flex flex-lg-column justify-content-center align-items-stretch pt-5 pt-lg-0 order-2 order-lg-1 aos-init aos-animate"
-          data-aos="fade-up"
+          className="client_login_content"
+          // class="col-lg-6 d-lg-flex flex-lg-column justify-content-center align-items-stretch pt-5 pt-lg-0 order-2 order-lg-1 aos-init aos-animate"
+          // data-aos="fade-up"
         >
-          <div className="clogin_form_conatiner">
+          <div className="client_login_form_conatiner">
             <form action="">
-              <div className="clogin_heading">
+              <div className="client_login_heading">
                 <h2>Sign In As Client</h2>
               </div>
 
@@ -31,13 +32,10 @@ const ClientLogin = () => {
                 <input type="text" placeholder="Password" id="Password" />
               </div>
 
-              <div className="clogin_button_container">
-                <div className="rememberme_container">
-                  <input type="checkbox" />
-                  <a href="https://www.google.com/">Remember Me</a>
-                </div>
-
-                <button type="submit">SIGN IN</button>
+              <div className="client_login_button_container">
+                <button type="submit" onClick={() => {}}>
+                  SIGN IN
+                </button>
               </div>
 
               <div className="forgotPassword_container">
@@ -48,55 +46,19 @@ const ClientLogin = () => {
         </div>
 
         <div
-          class="col-lg-6 d-lg-flex flex-lg-column align-items-stretch order-1 order-lg-2 hero-img aos-init aos-animate"
-          data-aos="fade-up"
+          className="client_login_image"
+          // class="col-lg-6 d-lg-flex flex-lg-column align-items-stretch order-1 order-lg-2 hero-img aos-init aos-animate"
+          // data-aos="fade-up"
         >
           <img
             src="https://bootstrapmade.com/demo/templates/Appland/assets/img/details-1.png"
-            class="img-fluid"
-            alt=""
-            style={{ width: "400px" }}
+            // class="img-fluid"
+            alt="login-image"
+            // style={{ width: "400px" }}
           />
         </div>
       </div>
-    </div>
-
-    /*<div className="clogin_container">
-      <div className="clogin_form_conatiner">
-        <form action="">
-          <div className="clogin_heading">
-            <h2>Sign In As Client</h2>
-          </div>
-
-          <div className="input_field">
-            <div className="icon_container">
-              <BsFillPersonFill />
-            </div>
-            <input type="text" placeholder="UserName" id="UsertName" />
-          </div>
-
-          <div className="input_field">
-            <div className="icon_container">
-              <RiLockPasswordFill />
-            </div>
-            <input type="text" placeholder="Password" id="Password" />
-          </div>
-
-          <div className="clogin_button_container">
-            <div className="rememberme_container">
-              <input type="checkbox" />
-              <a href="https://www.google.com/">Remember Me</a>
-            </div>
-
-            <button type="submit">SIGN IN</button>
-          </div>
-
-          <div className="forgotPassword_container">
-            <a href="https://www.google.com/">Forgot Password</a>
-          </div>
-        </form>
-      </div>
-    </div>*/
+    </>
   );
 };
 
