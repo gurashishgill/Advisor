@@ -8,11 +8,12 @@ const Home = () => {
     <>
       <div className="home_container">
         <div className="home_container_content">
-          <h1 className="home_main">We Empower Independent Advisors</h1>
+          <h1 className="home_main">We Empower  Advisors</h1>
           <p className="home_para">
-            As a financial advisor, your clients have placed their futures in
-            your hands. Advisor.com provides solutions and guidance to give that
-            future the attention it deserves.
+            <h6>As a financial advisor, your clients have placed their futures</h6>
+            <h6> in your hands. Advisor.com provides solutions and guidance</h6> 
+            <h6> to give that future the attention it deserves.</h6>
+            
           </p>
           <div className="home_button_container">
             <button

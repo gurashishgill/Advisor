@@ -54,7 +54,7 @@
 .input_field input {
     height: 40px;
     width: 100%;
-    font-size: 1rem;
+    font-size: 0.7rem;
     padding-left: 10px;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
@@ -69,7 +69,7 @@
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    margin-top: 15px;
+    margin-top: -2px;
 }
 
 .advisor_register_button_container button {
@@ -77,7 +77,7 @@
     border: none;
     color: #EDF6FF;
     padding: 8px 20px;
-    font-size: 1rem;
+    font-size: 0.8rem;
     font-weight: 600;
     border-radius: 5px;
 }
@@ -89,7 +89,7 @@
 }
 
 .advisor_register_heading h2 {
-    font-size: 2rem;
+    font-size: 1.4rem;
     font-weight: 600;
     color: #6daffe;
     text-align: center;
@@ -104,6 +104,7 @@
 
 .advisor_register_form_conatiner{
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    height: 95.5%;
     border-radius: 1rem;
     padding: 2rem;
 }

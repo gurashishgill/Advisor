@@ -20,7 +20,8 @@
 }
 
 .advisor_login_image img {
-    width: 80%;
+    width: 60%;
+    
 }
 
 .advisor_login_cover {
@@ -39,7 +40,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    margin-top: 10px;
+   
 }
 
 .icon_container {
@@ -80,8 +81,8 @@
     background-color: #437fc7;
     border: none;
     color: #EDF6FF;
-    padding: 8px 20px;
-    font-size: 1rem;
+    padding: 6px 15px;
+    font-size: 0.8rem;
     font-weight: 600;
     border-radius: 5px;
 }
@@ -91,10 +92,11 @@
     align-items: center;
     justify-content: center;
     margin-bottom: 20px;
+    
 }
 
 .advisor_login_heading h2 {
-    font-size: 2rem;
+    font-size: 1.3rem;
     font-weight: 600;
     color: #6daffe;
     text-align: center;
@@ -111,6 +113,7 @@
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     border-radius: 1rem;
     padding: 2rem;
+    height: 60%;
 }
 
 @media screen and (max-width: 1000px) {
