@@ -1,31 +1,38 @@
-.alogin_container{
+.advisor_login_container {
     display: flex;
-    min-height: 100vh;
-    align-items: center;
-    justify-content: center;
-}
-.alogin_form_conatiner{
-    min-width: 30%;
-    display: flex;
-    flex-direction: column;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    padding: 15px;
-    border-radius: 10px;
-}
-.alogin_form_conatiner h2 {
-    font-size: 18px;
-}
-.alogin_cover {
-    display: flex;
-    flex-direction: row;
+    min-height: 90vh;
+    /* padding: 2rem; */
 }
 
-.alogin_heading{
+.advisor_login_content {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 20px;
+    flex-direction: column;
+    flex: 0.5;
 }
+
+.advisor_login_image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0.5;
+}
+
+.advisor_login_image img {
+    width: 80%;
+}
+
+.advisor_login_cover {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+/* .advisor_login_column:last-child {
+    margin-left: 1rem;
+} */
 
 .input_field {
     display: flex;
@@ -35,14 +42,199 @@
     margin-top: 10px;
 }
 
-.alogin_button_container {
+.icon_container {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
+    padding: 0px 15px;
+    height: 40px;
+    background-color: #437fc7;
+    color: #EDF6FF;
+    font-size: 1rem;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.input_field input {
+    height: 40px;
+    width: 100%;
+    font-size: 1rem;
+    padding-left: 10px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-top: 0.5px solid gray;
+    border-bottom: .5px solid gray;
+    border-right: .5px solid gray;
+    border-left: none;
+    color: #000000;
+}
+
+.advisor_login_button_container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
     margin-top: 15px;
 }
 
-.alogin_button_container button {
+.advisor_login_button_container button {
+    background-color: #437fc7;
+    border: none;
+    color: #EDF6FF;
+    padding: 8px 20px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 5px;
+}
+
+.advisor_login_heading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.advisor_login_heading h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #6daffe;
+    text-align: center;
+}
+
+.error {
+    min-height: 12px;
+    font-size: 12px;
+    font-weight: 300;
+    color: red;
+}
+
+.advisor_login_form_conatiner {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 1rem;
+    padding: 2rem;
+}
+
+@media screen and (max-width: 1000px) {
+    .advisor_login_image img {
+        width: 80%;
+        height: 70%;
+    }
+}
+
+@media screen and (max-width: 850px) {
+    .advisor_login_image img {
+        width: 100%;
+        height: 50%;
+    }
+
+    .advisor_login_heading h2 {
+        font-size: 1.8rem;
+    }
+
+    .input_field input {
+        font-size: 0.8rem;
+    }
+
+    .advisor_login_button_container button {
+        font-size: 0.8rem;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .advisor_login_container {
+        flex-direction: column-reverse;
+    }
+
+    .advisor_login_content {
+        flex: 1;
+    }
+
+    .advisor_login_image {
+        flex: 1;
+    }
+
+    .advisor_login_image img {
+        width: 80%;
+        height: 80%;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .advisor_login_cover {
+        flex-direction: column;
+    }
+
+    .advisor_login_column:last-child {
+        margin-left: 0rem;
+    }
+
+    .advisor_login_heading h2 {
+        font-size: 1.7rem;
+    }
+
+    .input_field input {
+        font-size: 0.7rem;
+    }
+
+    .advisor_login_button_container button {
+        font-size: 0.7rem;
+    }
+}
+
+
+
+
+
+
+/* .aregister_container {
+    display: flex;
+   min-height: 50vh;
+    align-items: center;
+    justify-content: center;
+    margin-top: 100px;
+   
+}
+
+
+.aregister_form_container {
+    min-width: 30%;
+    display: flex;
+    flex-direction: column;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    padding: 15px;
+    border-radius: 10px;
+}
+.aregister_heading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+.aregister_form_container h2 {
+    font-size: 18px;
+} */
+/* .aregister_cover {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+} */
+
+/* .input_field {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+} */
+
+/* .aregister_button_container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-top: 15px;
+} */
+
+/* .aregister_button_container button {
     background-color: #0D6EFD;
     border: none;
     color: #ffffff;
@@ -50,9 +242,9 @@
     font-size: 14px;
     font-weight: 600;
     border-radius: 5px;
-}
+} */
 
-.input_field input {
+/* .input_field input {
     height: 40px;
     width: 100%;
     font-size: 14px;
@@ -63,9 +255,10 @@
     border-bottom: .5px solid gray;
     border-right: .5px solid gray;
     border-left: none;
-}
+} */
 
-.icon_container {
+
+/* .icon_container {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -76,27 +269,18 @@
     font-size: 18px;
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
-}
+} */
+/* .aregister_column:last-child {
+    margin-left: 10px;
+} */
 
-.forgotPassword_container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 20px;
-}
 
-.forgotPassword_container a {
-    font-size: 16px;
-    font-weight: 400;
-}
 
-.rememberme_container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.rememberme_container a {
-    font-size: 16px;
-    font-weight: 400;
-}
+/* @media (max-width:993px){
+    .img-fluid{
+        width: 25%;
+        height: 35%;
+      margin-bottom: -20%;
+      
+    }
+} */
