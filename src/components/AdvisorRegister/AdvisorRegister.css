@@ -69,7 +69,6 @@
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    margin-top: -2px;
 }
 
 .advisor_register_button_container button {
@@ -104,7 +103,6 @@
 
 .advisor_register_form_conatiner{
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    height: 95.5%;
     border-radius: 1rem;
     padding: 2rem;
 }

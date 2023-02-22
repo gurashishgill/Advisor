@@ -11,12 +11,12 @@ import { useHistory } from "react-router-dom";
 
 function AdvisorDashboard2() {
   const history = useHistory();
-  /*useEffect(() => {
+  useEffect(() => {
     const userData = JSON.parse(localStorage.getItem("user"));
     if (userData === null) {
       history.push("/AdvisorLogin");
     }
-  })*/;
+  });
   return (
     <div className="dashboard2">
       <div className="dashboard2_container">

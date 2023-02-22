@@ -11,12 +11,19 @@ import { FiLogOut } from "react-icons/fi";
 function NavigationBar() {
   const history = useHistory();
 
-  let userData = JSON.parse(localStorage.getItem("user"));
+  //let userData = JSON.parse(localStorage.getItem("user"));
+  const [userData, setUserData] = React.useState(null);
+
+  useEffect(() => {
+    setUserData(JSON.parse(localStorage.getItem("user")));
+  }, [history]);
 
   const handleLogout = () => {
     localStorage.removeItem("user");
     history.push("/");
   };
+
+  console.log(localStorage.getItem("user"));
 
   return (
     <Navbar bg="dark" variant="dark" expand="lg">

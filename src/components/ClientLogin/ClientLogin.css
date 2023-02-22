@@ -1,7 +1,7 @@
 .client_login_container {
     display: flex;
     min-height: 96vh;
-    margin-top: -10px;
+    /* margin-top: -10px; */
     /* padding: 2rem; */
 }
 
@@ -21,8 +21,8 @@
 }
 
 .client_login_image img {
-    width: 47%;
-    height: 58%;
+    width: 60%;
+    height: 70%;
 }
 
 .client_login_cover {
@@ -57,7 +57,7 @@
     border-bottom-left-radius: 5px;
 }
 .input_field{
-    margin-top: 2.3rem;
+    /* margin-top: 2.3rem; */
 }
 
 .input_field input {
@@ -116,7 +116,7 @@
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     border-radius: 1rem;
     padding: 2rem;
-    height: 58%;
+    /* height: 58%; */
 }
 
 @media screen and (max-width: 1000px) {

@@ -21,7 +21,6 @@
 
 .advisor_login_image img {
     width: 60%;
-    
 }
 
 .advisor_login_cover {
@@ -113,7 +112,7 @@
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     border-radius: 1rem;
     padding: 2rem;
-    height: 60%;
+    /* height: 60%; */
 }
 
 @media screen and (max-width: 1000px) {
