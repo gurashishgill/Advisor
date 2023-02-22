@@ -6,7 +6,7 @@ import { AiOutlineUser } from "react-icons/ai";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import ClientListTable from "../ClientListTable/ClientListTable";
-import InvesmentListTable from "../InvestmentListTable/InvestmentListTable";
+
 import { useHistory } from "react-router-dom";
 
 function AdvisorDashboard2() {
@@ -56,16 +56,14 @@ function AdvisorDashboard2() {
         <div className="dashboard2_bottom">
           <Tabs>
             <TabList>
-              <Tab>Client List</Tab>
-              <Tab>Investment List</Tab>
+              
+              
             </TabList>
 
             <TabPanel>
               <ClientListTable />
             </TabPanel>
-            <TabPanel>
-              <InvesmentListTable />
-            </TabPanel>
+            
           </Tabs>
         </div>
       </div>

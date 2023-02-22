@@ -20,6 +20,7 @@ function NavigationBar() {
 
   const handleLogout = () => {
     localStorage.removeItem("user");
+    
     history.push("/");
   };
 

@@ -6,7 +6,7 @@ import Modal from "react-bootstrap/Modal";
 import { BsFillPersonFill } from "react-icons/bs";
 import { RiLockPasswordFill } from "react-icons/ri";
 import { MdModeEditOutline, MdDeleteOutline } from "react-icons/md";
-import { RxOpenInNewWindow } from "react-icons/rx";
+import { BsEye } from "react-icons/bs";
 
 function AddClientModal(props) {
   return (
@@ -69,7 +69,7 @@ const customButton = (cell, row) => {
           cursor: "pointer",
         }}
       >
-        <RxOpenInNewWindow />
+        <BsEye />
       </div>
       <div
         style={{
