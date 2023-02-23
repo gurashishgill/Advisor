@@ -7,6 +7,7 @@ import Home from "./components/Home/Home";
 import AdvisorDashboard2 from "./components/AdvisorDashboard2/AdvisorDashboard2";
 import NavigationBar from "./components/NavigationBar/NavigationBar";
 import DashboardNavigationBar from "./components/DashboardNavigationBar/DashboardNavigationBar";
+import AdvisorProfile from "./components/AdvisorProfile/AdvisorProfile";
 import { useSelector } from "react-redux";
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
         <Route exact path="/AdvisorLogin" component={AdvisorLogin} />
         <Route exact path="/ClientLogin" component={ClientLogin} />
         <Route exact path="/Dashboard" component={AdvisorDashboard2} />
+        <Route exact path="/advisor/profile" component={AdvisorProfile} />
       </Switch>
     </>
   );

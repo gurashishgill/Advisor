@@ -6,11 +6,12 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import logo from "../../assets/logo.png";
 import "./DashboardNavigationBar.css";
 import { FiLogOut } from "react-icons/fi";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../features/auth/authSlice";
 
-function DashboardNavigationBar({ userData }) {
+function DashboardNavigationBar() {
   const dispatch = useDispatch();
+  const { userinfo } = useSelector((state) => state.advisor);
 
   const handleLogout = () => {
     dispatch(logout());
@@ -28,6 +29,15 @@ function DashboardNavigationBar({ userData }) {
               </Nav.Link>
             </div>
             <div className="nav_item_2">
+              <NavDropdown title={userinfo.email} id="navbarScrollingDropdown">
+                <NavDropdown.Item href="/advisor/profile">
+                  Profile
+                </NavDropdown.Item>
+                {/* <NavDropdown.Divider />
+                <NavDropdown.Item href="/ClientLogin">
+                  Login as Client
+                </NavDropdown.Item> */}
+              </NavDropdown>
               <Nav.Link className="logout_button" onClick={handleLogout}>
                 Logout <FiLogOut />
               </Nav.Link>

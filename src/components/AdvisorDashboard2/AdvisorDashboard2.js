@@ -7,18 +7,40 @@ import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import ClientListTable from "../ClientListTable/ClientListTable";
 import { useHistory } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { getUserInfo, reset } from "../../features/advisor/advisorSlice";
 import { useEffect } from "react";
+import swal from "sweetalert";
 
 function AdvisorDashboard2() {
+  const dispatch = useDispatch();
   const history = useHistory();
   const { token } = useSelector((state) => state.auth);
+  const { userinfo, isLoading, isError, isSuccess, message } = useSelector(
+    (state) => state.advisor
+  );
 
   useEffect(() => {
     if (token === null) {
-      history.push("AdvisorLogin");
+      history.push("/AdvisorLogin");
     }
   }, [token]);
+
+  useEffect(() => {
+    dispatch(getUserInfo());
+  }, [dispatch]);
+
+  useEffect(() => {
+    if (isError) {
+      swal({
+        title: "Error!",
+        text: message,
+        icon: "error",
+        button: "OK",
+      });
+    }
+    dispatch(reset());
+  }, [userinfo, isError, isSuccess, isLoading, message, history]);
 
   return (
     <>
