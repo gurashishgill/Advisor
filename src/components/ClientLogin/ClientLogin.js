@@ -22,7 +22,7 @@ const ClientLogin = () => {
                 <div className="icon_container">
                   <BsFillPersonFill />
                 </div>
-                <input type="text" placeholder="UserName" id="UsertName" />
+                <input type="text" placeholder="Username" id="UsertName" />
               </div>
 
               <div className="input_field">
@@ -39,7 +39,7 @@ const ClientLogin = () => {
               </div>
 
               <div className="forgotPassword_container">
-                <a href="https://www.google.com/">Forgot Password</a>
+                <a href="https://www.google.com/">Forgot Password?</a>
               </div>
             </form>
           </div>

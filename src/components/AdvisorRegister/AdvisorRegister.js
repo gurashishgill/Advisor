@@ -153,7 +153,7 @@ const Register = () => {
                         </div>
                         <input
                           type="text"
-                          placeholder="FirstName"
+                          placeholder="Firstname"
                           id="FirstName"
                           value={FirstName}
                           onChange={(e) => setFirstName(e.target.value)}
@@ -234,7 +234,7 @@ const Register = () => {
                         </div>
                         <input
                           type="text"
-                          placeholder="LastName"
+                          placeholder="Lastname"
                           id="LastName"
                           value={LastName}
                           onChange={(e) => setLastName(e.target.value)}
