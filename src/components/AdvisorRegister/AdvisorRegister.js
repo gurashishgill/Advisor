@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./AdvisorRegister.css";
 import { BsFillPersonFill } from "react-icons/bs";
 import { AiFillPhone } from "react-icons/ai";
@@ -8,10 +8,42 @@ import { AiTwotoneMail } from "react-icons/ai";
 import { HiLocationMarker } from "react-icons/hi";
 import { FaAddressBook } from "react-icons/fa";
 import { RiLockPasswordFill } from "react-icons/ri";
-import axios from "axios";
+import { useSelector, useDispatch } from "react-redux";
+import { register, reset } from "../../features/auth/authSlice";
+import { useHistory } from "react-router-dom";
 import swal from "sweetalert";
+import Spinner from "../Spinner/Spinner";
 
 const Register = () => {
+  const history = useHistory();
+  const dispatch = useDispatch();
+  const { token, isError, isLoading, message, isSuccess } = useSelector(
+    (state) => state.auth
+  );
+
+  useEffect(() => {
+    if (isError) {
+      swal({
+        title: "Error!",
+        text: message,
+        icon: "error",
+        button: "OK",
+      });
+    }
+
+    if (isSuccess || token) {
+      swal({
+        title: "Success!",
+        text: message,
+        icon: "success",
+        button: "OK",
+      });
+      history.push("/AdvisorLogin");
+    }
+
+    dispatch(reset());
+  }, [token, isError, isSuccess, isLoading, message, history, dispatch]);
+
   const [FirstName, setFirstName] = useState("");
   const [LastName, setLastName] = useState("");
   const [Phone, setPhone] = useState("");
@@ -109,35 +141,18 @@ const Register = () => {
         confirmPassword: ConfirmPassword,
       };
 
-      axios
-        .post("https://localhost:7075/api/Users/Register", data)
-        .then((response) => {
-          swal({
-            title: "Success!",
-            text: "You have been registered successfully",
-            icon: "success",
-            button: "OK",
-          });
-        })
-        .catch((error) => {
-          swal({
-            title: "Error!",
-            text: "server side error.",
-            icon: "error",
-            button: "OK",
-          });
-        });
+      dispatch(register(data));
     }
   };
+
+  if (isLoading) {
+    return <Spinner />;
+  }
 
   return (
     <>
       <div className="advisor_register_container">
-        <div
-          className="advisor_register_content"
-          // class="col-lg-6 d-lg-flex flex-lg-column justify-content-center align-items-stretch pt-5 pt-lg-0 order-2 order-lg-1 aos-init aos-animate"
-          // data-aos="fade-up"
-        >
+        <div className="advisor_register_content">
           <div className="advisor_register_form_conatiner">
             <form action="">
               <div className="advisor_register_heading">
@@ -319,16 +334,10 @@ const Register = () => {
           </div>
         </div>
 
-        <div
-          className="advisor_register_image"
-          // class="col-lg-6 d-lg-flex flex-lg-column align-items-stretch order-1 order-lg-2 hero-img aos-init aos-animate"
-          // data-aos="fade-up"
-        >
+        <div className="advisor_register_image">
           <img
             src="https://img.freepik.com/free-vector/businessman-holding-pencil-big-complete-checklist-with-tick-marks_1150-35019.jpg?w=996&t=st=1676740665~exp=1676741265~hmac=73af938ab80b799ca7d713a4aa8dc1ee26797a6a6ac27891e8778636960a0de9"
-            // class="img-fluid"
             alt="register-image"
-            // style={{ width: "480px" }}
           />
         </div>
       </div>

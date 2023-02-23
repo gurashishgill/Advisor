@@ -6,11 +6,15 @@ import { Switch, Route } from "react-router-dom";
 import Home from "./components/Home/Home";
 import AdvisorDashboard2 from "./components/AdvisorDashboard2/AdvisorDashboard2";
 import NavigationBar from "./components/NavigationBar/NavigationBar";
+import DashboardNavigationBar from "./components/DashboardNavigationBar/DashboardNavigationBar";
+import { useSelector } from "react-redux";
 
 function App() {
+  const { token } = useSelector((state) => state.auth);
+
   return (
     <>
-      <NavigationBar />
+      {token ? <DashboardNavigationBar /> : <NavigationBar />}
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/AdvisorRegister" component={AdvisorRegister} />

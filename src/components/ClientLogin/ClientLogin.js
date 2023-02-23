@@ -1,6 +1,7 @@
 import React from "react";
 import { BsFillPersonFill } from "react-icons/bs";
 import { RiLockPasswordFill } from "react-icons/ri";
+import NavigationBar from "../NavigationBar/NavigationBar";
 import "./ClientLogin.css";
 
 const ClientLogin = () => {
