@@ -33,6 +33,7 @@ function DashboardNavigationBar() {
                 <NavDropdown.Item href="/advisor/profile">
                   Profile
                 </NavDropdown.Item>
+                <NavDropdown.Item href="/Dashboard">Dashboard</NavDropdown.Item>
                 {/* <NavDropdown.Divider />
                 <NavDropdown.Item href="/ClientLogin">
                   Login as Client
