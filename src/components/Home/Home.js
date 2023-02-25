@@ -1,6 +1,7 @@
 import React from "react";
 import "./Home.css";
 import { useHistory } from "react-router-dom";
+import NavigationBar from "../NavigationBar/NavigationBar";
 
 const Home = () => {
   const history = useHistory();
@@ -8,12 +9,13 @@ const Home = () => {
     <>
       <div className="home_container">
         <div className="home_container_content">
-          <h1 className="home_main">We Empower  Advisors</h1>
+          <h1 className="home_main">We Empower Advisors</h1>
           <p className="home_para">
-            <h6>As a financial advisor, your clients have placed their futures</h6>
-            <h6> in your hands. Advisor.com provides solutions and guidance</h6> 
+            <h6>
+              As a financial advisor, your clients have placed their futures
+            </h6>
+            <h6> in your hands. Advisor.com provides solutions and guidance</h6>
             <h6> to give that future the attention it deserves.</h6>
-            
           </p>
           <div className="home_button_container">
             <button
