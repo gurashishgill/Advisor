@@ -26,7 +26,7 @@ function AddClientModal(props) {
           <div className="icon_container">
             <BsFillPersonFill />
           </div>
-          <input type="text" placeholder="UserName" id="UsertName" />
+          <input type="text" placeholder="Username" id="UsertName" />
         </div>
 
         <div className="input_field">

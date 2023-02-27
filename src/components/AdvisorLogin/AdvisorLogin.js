@@ -101,7 +101,7 @@ function AdvisorLogin() {
                   </div>
                   <input
                     type="email"
-                    placeholder="UserName"
+                    placeholder="Username"
                     id="UsertName"
                     value={Email}
                     onChange={(e) => setEmail(e.target.value)}
@@ -133,7 +133,7 @@ function AdvisorLogin() {
               </div>
 
               <div className="forgotPassword_container">
-                <a href="https://www.google.com/">Forgot Password</a>
+                <a href="https://www.google.com/">Forgot Password?</a>
               </div>
             </form>
           </div>
