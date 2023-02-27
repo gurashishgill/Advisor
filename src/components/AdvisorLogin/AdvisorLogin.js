@@ -15,29 +15,6 @@ function AdvisorLogin() {
     (state) => state.auth
   );
 
-  useEffect(() => {
-    if (isError) {
-      swal({
-        title: "Error!",
-        text: message,
-        icon: "error",
-        button: "OK",
-      });
-    }
-
-    if (isSuccess || token) {
-      swal({
-        title: "Success!",
-        text: message,
-        icon: "success",
-        button: "OK",
-      });
-      history.push("/Dashboard");
-    }
-
-    dispatch(reset());
-  }, [token, isError, isSuccess, isLoading, message, history, dispatch]);
-
   const [Email, setEmail] = useState("");
   const [Password, setPassword] = useState("");
 
@@ -80,72 +57,95 @@ function AdvisorLogin() {
     }
   };
 
-  if (isLoading) {
-    return <Spinner />;
-  }
+  useEffect(() => {
+    if (isError) {
+      swal({
+        title: "Error!",
+        text: message,
+        icon: "error",
+        button: "OK",
+      });
+    }
+
+    if (isSuccess) {
+      swal({
+        title: "Success!",
+        text: "Logged in successfully",
+        icon: "success",
+        button: "OK",
+      });
+      history.push("/Dashboard");
+    }
+
+    dispatch(reset());
+  }, [token, isError, isSuccess, isLoading, message, history, dispatch]);
 
   return (
     <>
-      <div className="advisor_login_container">
-        <div className="advisor_login_content">
-          <div className="advisor_login_form_conatiner">
-            <form action="">
-              <div className="advisor_login_heading">
-                <h2>Sign In As Advisor</h2>
-              </div>
-
-              <div className="input_field_container">
-                <div className="input_field">
-                  <div className="icon_container">
-                    <BsFillPersonFill />
-                  </div>
-                  <input
-                    type="email"
-                    placeholder="UserName"
-                    id="UsertName"
-                    value={Email}
-                    onChange={(e) => setEmail(e.target.value)}
-                  />
+      {isLoading ? (
+        <Spinner />
+      ) : (
+        <div className="advisor_login_container">
+          <div className="advisor_login_content">
+            <div className="advisor_login_form_conatiner">
+              <form action="">
+                <div className="advisor_login_heading">
+                  <h2>Sign In As Advisor</h2>
                 </div>
-                <p className="error">{EmailError}</p>
-              </div>
 
-              <div className="input_field_container">
-                <div className="input_field">
-                  <div className="icon_container">
-                    <RiLockPasswordFill />
+                <div className="input_field_container">
+                  <div className="input_field">
+                    <div className="icon_container">
+                      <BsFillPersonFill />
+                    </div>
+                    <input
+                      type="email"
+                      placeholder="UserName"
+                      id="UsertName"
+                      value={Email}
+                      onChange={(e) => setEmail(e.target.value)}
+                    />
                   </div>
-                  <input
-                    type="password"
-                    placeholder="Password"
-                    id="Password"
-                    value={Password}
-                    onChange={(e) => setPassword(e.target.value)}
-                  />
+                  <p className="error">{EmailError}</p>
                 </div>
-                <p className="error">{passError}</p>
-              </div>
 
-              <div className="advisor_login_button_container">
-                <button type="submit" onClick={handleLogin}>
-                  SIGN IN
-                </button>
-              </div>
+                <div className="input_field_container">
+                  <div className="input_field">
+                    <div className="icon_container">
+                      <RiLockPasswordFill />
+                    </div>
+                    <input
+                      type="password"
+                      placeholder="Password"
+                      id="Password"
+                      value={Password}
+                      onChange={(e) => setPassword(e.target.value)}
+                    />
+                  </div>
+                  <p className="error">{passError}</p>
+                </div>
 
-              <div className="forgotPassword_container">
-                <a href="https://www.google.com/">Forgot Password</a>
-              </div>
-            </form>
+                <div className="advisor_login_button_container">
+                  <button type="submit" onClick={handleLogin}>
+                    SIGN IN
+                  </button>
+                </div>
+
+                <div className="forgotPassword_container">
+                  <a href="https://www.google.com/">Forgot Password</a>
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <div className="advisor_login_image">
+            <img
+              src="https://img.freepik.com/free-vector/mobile-login-concept-illustration_114360-83.jpg?w=740&t=st=1676739972~exp=1676740572~hmac=744399e06e6b3ad60ea3e9a0c0a8d35582f9bc3efc9c4375856cd86ed67f66f1"
+              alt="login-image"
+            />
           </div>
         </div>
-
-        <div className="advisor_login_image">
-          <img
-            src="https://img.freepik.com/free-vector/mobile-login-concept-illustration_114360-83.jpg?w=740&t=st=1676739972~exp=1676740572~hmac=744399e06e6b3ad60ea3e9a0c0a8d35582f9bc3efc9c4375856cd86ed67f66f1"
-            alt="login-image"
-          />
-        </div>
-      </div>
+      )}
     </>
   );
 }

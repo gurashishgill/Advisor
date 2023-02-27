@@ -11,7 +11,7 @@ const register = async (userData) => {
   //     localStorage.setItem("token", JSON.stringify(response.data));
   //   }
 
-  return response.data;
+  return null;
 };
 
 // Login user

@@ -2,18 +2,21 @@ import axios from "axios";
 
 // const API_URL = "/api/goals/";
 
-// Create new goal
-// const createGoal = async (goalData, token) => {
-//   const config = {
-//     headers: {
-//       Authorization: `Bearer ${token}`,
-//     },
-//   };
+// Create new client
+const createClient = async (clientdata) => {
+  // const config = {
+  //   headers: {
+  //     Authorization: `Bearer ${token}`,
+  //   },
+  // };
 
-//   const response = await axios.post(API_URL, goalData, config);
+  const response = await axios.post(
+    "https://localhost:7075/api/Users/addClient",
+    clientdata
+  );
 
-//   return response.data;
-// };
+  return response.data;
+};
 
 // Get user Details
 const getUserDetails = async (token) => {
@@ -38,6 +41,13 @@ const detailsfromlocal = () => {
   localStorage.getItem("userinfo");
 };
 
+const getClientsofAdvisor = async (advisorid) => {
+  const response = await axios.get(
+    `https://localhost:7075/api/Users/getclients?advisorID=${advisorid}`
+  );
+  return response.data;
+};
+
 // Delete user goal
 // const deleteGoal = async (goalId, token) => {
 //   const config = {
@@ -55,6 +65,8 @@ const advisorService = {
   // createGoal,
   getUserDetails,
   detailsfromlocal,
+  createClient,
+  getClientsofAdvisor,
   // deleteGoal,
 };
 

@@ -38,7 +38,7 @@ const Register = () => {
         icon: "success",
         button: "OK",
       });
-      history.push("/AdvisorLogin");
+      // history.push("/AdvisorLogin");
     }
 
     dispatch(reset());

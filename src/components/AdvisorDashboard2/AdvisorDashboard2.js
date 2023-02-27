@@ -34,13 +34,14 @@ function AdvisorDashboard2() {
     if (isError) {
       swal({
         title: "Error!",
-        text: message,
+        text: "There was some error getting user information",
         icon: "error",
         button: "OK",
       });
+      history.push("/AdvisorLogin");
     }
     dispatch(reset());
-  }, [userinfo, isError, isSuccess, isLoading, message, history]);
+  }, [isError, isSuccess, isLoading, message, dispatch]);
 
   return (
     <>
