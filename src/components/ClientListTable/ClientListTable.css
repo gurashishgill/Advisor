@@ -45,3 +45,14 @@ background-color: #FF0000;
     align-items: center;
     justify-content: space-around;
 }
+
+.client_register_cover {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.client_register_column:last-child {
+    margin-left: 1rem;
+}

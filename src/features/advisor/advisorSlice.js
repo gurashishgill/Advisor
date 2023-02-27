@@ -5,32 +5,32 @@ const userinfo = JSON.parse(localStorage.getItem("userinfo"));
 
 const initialState = {
   userinfo: userinfo ? userinfo : {},
+  clients: [],
   isError: false,
   isSuccess: false,
   isLoading: false,
   message: "",
 };
 
-// Create new goal
-// export const createGoal = createAsyncThunk(
-//   "goals/create",
-//   async (goalData, thunkAPI) => {
-//     try {
-//       const token = thunkAPI.getState().auth.user.token;
-//       return await goalService.createGoal(goalData, token);
-//     } catch (error) {
-//       const message =
-//         (error.response &&
-//           error.response.data &&
-//           error.response.data.message) ||
-//         error.message ||
-//         error.toString();
-//       return thunkAPI.rejectWithValue(message);
-//     }
-//   }
-// );
+// Create new client
+export const createClient = createAsyncThunk(
+  "create",
+  async (clientdata, thunkAPI) => {
+    try {
+      return await advisorService.createClient(clientdata);
+    } catch (error) {
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString();
+      return thunkAPI.rejectWithValue(message);
+    }
+  }
+);
 
-// Get user goals
+// Get user info
 export const getUserInfo = createAsyncThunk(
   "GetUserInfo",
   async (_, thunkAPI) => {
@@ -52,6 +52,23 @@ export const getUserInfo = createAsyncThunk(
 export const Detailsfromlocal = createAsyncThunk("Get", async () => {
   await advisorService.detailsfromlocal();
 });
+
+export const getClientsofAdvisor = createAsyncThunk(
+  "GetClients",
+  async (advisorid, thunkAPI) => {
+    try {
+      return await advisorService.getClientsofAdvisor(advisorid);
+    } catch (error) {
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString();
+      return thunkAPI.rejectWithValue(message);
+    }
+  }
+);
 
 // Delete user goal
 // export const deleteGoal = createAsyncThunk(
@@ -85,19 +102,17 @@ export const advisorSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      // .addCase(createGoal.pending, (state) => {
-      //   state.isLoading = true;
-      // })
-      // .addCase(createGoal.fulfilled, (state, action) => {
-      //   state.isLoading = false;
-      //   state.isSuccess = true;
-      //   state.goals.push(action.payload);
-      // })
-      // .addCase(createGoal.rejected, (state, action) => {
-      //   state.isLoading = false;
-      //   state.isError = true;
-      //   state.message = action.payload;
-      // })
+      .addCase(createClient.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(createClient.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.isSuccess = true;
+      })
+      .addCase(createClient.rejected, (state, action) => {
+        state.isLoading = false;
+        state.isError = true;
+      })
       .addCase(getUserInfo.pending, (state) => {
         state.isLoading = true;
       })
@@ -111,6 +126,20 @@ export const advisorSlice = createSlice({
         state.isError = true;
         state.message = action.payload;
         state.userinfo = {};
+      })
+      .addCase(getClientsofAdvisor.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(getClientsofAdvisor.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.isSuccess = true;
+        state.clients = action.payload;
+      })
+      .addCase(getClientsofAdvisor.rejected, (state, action) => {
+        state.isLoading = false;
+        state.isError = true;
+        state.message = action.payload;
+        state.clients = [];
       });
     // .addCase(deleteGoal.pending, (state) => {
     //   state.isLoading = true;
