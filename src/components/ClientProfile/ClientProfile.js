@@ -1,4 +1,5 @@
 import React from "react";
+
 import {
   MDBCol,
   MDBContainer,
@@ -17,8 +18,8 @@ import {
   MDBListGroupItem,
 } from "mdb-react-ui-kit";
 import { useSelector } from "react-redux";
-import "./AdvisorProfile.css";
-import { BsEye } from "react-icons/bs";
+import "./ClientProfile.css";
+
 import paginationFactory from "react-bootstrap-table2-paginator";
 import BootstrapTable from "react-bootstrap-table-next";
 // import "mdb-react-ui-kit/dist/css/mdb.min.css";
@@ -34,50 +35,36 @@ export const ClientsGenerator = (quantity) => {
 
 const clinets = ClientsGenerator(100);
 
-const customButton = (cell, row) => {
-  return (
-    <div className="custom_button_container">
-      <div
-        style={{
-          backgroundColor: "#0D6EFD",
-          color: "#ffffff",
-          fontSize: "20px",
-          padding: "2px 7px",
-          borderRadius: "5px",
-          cursor: "pointer",
-        }}
-      >
-        <BsEye />
-      </div>
-    </div>
-  );
-};
 
 
 const columns = [
   {
-    dataField: "id",
-    text: "Client ID",
+    dataField: "price",
+    text: "Proposed",
     sort: true,
   },
   {
-    dataField: "name",
-    text: "Client Name",
+    dataField: "pending",
+    text: "Pending",
     sort: true,
   },
   {
     dataField: "price",
-    text: "Investment",
+    text: "Net Investment",
     sort: true,
   },
   {
-    dataField: "action",
-    text: "Actions",
-    formatter: customButton,
+    dataField: "value",
+    text: "Market Value",
   },
+  {
+    dataField: "date",
+    text: "Inception Date",
+    sort: true,
+  }
 ];
 
-function AdvisorProfile() {
+function ClientProfile() {
   const { userinfo } = useSelector((state) => state.advisor);
   return (
     <section style={{ backgroundColor: "#eee" }}>
@@ -86,19 +73,19 @@ function AdvisorProfile() {
           <MDBCol lg="4">
             <MDBCard className="mb-4">
               <MDBCardBody className="text-center">
-                <MDBCardImage 
+                <MDBCardImage
                   src="/avatar.png"
                   alt=""
-                  style={{ width: "70px" }}
+                  style={{ width : "70px" }}
                   fluid
                 />
                 <p className="text-muted mb-1">
                   {userinfo.firstName} {userinfo.lastName}
                 </p>
                 {userinfo.roleID == 2 ? (
-                  <p className="text-mute mb-4">Advisor</p>
+                  <p className="text-mute mb-4">Client</p>
                 ) : (
-                  <p className="text-muted">Client</p>
+                  <p className="text-muted">Advisor</p>
                 )}
 
                 {/* <div className="d-flex justify-content-center mb-2">
@@ -214,4 +201,4 @@ function AdvisorProfile() {
   );
 }
 
-export default AdvisorProfile;
+export default ClientProfile;

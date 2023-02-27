@@ -8,7 +8,9 @@ import AdvisorDashboard2 from "./components/AdvisorDashboard2/AdvisorDashboard2"
 import NavigationBar from "./components/NavigationBar/NavigationBar";
 import DashboardNavigationBar from "./components/DashboardNavigationBar/DashboardNavigationBar";
 import AdvisorProfile from "./components/AdvisorProfile/AdvisorProfile";
+import ClientProfile from "./components/ClientProfile/ClientProfile";
 import { useSelector } from "react-redux";
+
 
 function App() {
   const { token } = useSelector((state) => state.auth);
@@ -23,6 +25,7 @@ function App() {
         <Route exact path="/ClientLogin" component={ClientLogin} />
         <Route exact path="/Dashboard" component={AdvisorDashboard2} />
         <Route exact path="/advisor/profile" component={AdvisorProfile} />
+        <Route exact path="/client/profile" component={ClientProfile} />
       </Switch>
     </>
   );
