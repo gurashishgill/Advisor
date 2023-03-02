@@ -3,6 +3,8 @@ import { BsFillPersonFill } from "react-icons/bs";
 import { RiLockPasswordFill } from "react-icons/ri";
 import { useSelector, useDispatch } from "react-redux";
 import { login, reset } from "../../features/auth/authSlice";
+import { getUserInfo } from "../../features/advisor/advisorSlice";
+import { getClients } from "../../features/clients/clientsSlice";
 import Spinner from "../Spinner/Spinner";
 import "./AdvisorLogin.css";
 import swal from "sweetalert";
@@ -14,6 +16,8 @@ function AdvisorLogin() {
   const { token, isError, isLoading, message, isSuccess } = useSelector(
     (state) => state.auth
   );
+
+  const { userinfo } = useSelector((state) => state.advisor);
 
   const [Email, setEmail] = useState("");
   const [Password, setPassword] = useState("");
@@ -53,7 +57,9 @@ function AdvisorLogin() {
         password: Password,
       };
 
-      dispatch(login(data));
+      dispatch(login(data)).then(() => {
+        dispatch(getUserInfo());
+      });
     }
   };
 
@@ -74,7 +80,7 @@ function AdvisorLogin() {
         icon: "success",
         button: "OK",
       });
-      history.push("/Dashboard");
+      history.push("/");
     }
 
     dispatch(reset());
