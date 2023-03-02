@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
   MDBCol,
   MDBContainer,
@@ -7,32 +7,24 @@ import {
   MDBCardText,
   MDBCardBody,
   MDBCardImage,
-  MDBBtn,
-  MDBBreadcrumb,
-  MDBBreadcrumbItem,
-  MDBProgress,
-  MDBProgressBar,
-  MDBIcon,
-  MDBListGroup,
-  MDBListGroupItem,
 } from "mdb-react-ui-kit";
-import { useSelector } from "react-redux";
 import "./AdvisorProfile.css";
 import { BsEye } from "react-icons/bs";
 import paginationFactory from "react-bootstrap-table2-paginator";
 import BootstrapTable from "react-bootstrap-table-next";
+import { useSelector, useDispatch } from "react-redux";
+import { getClients, reset } from "../../features/clients/clientsSlice";
+import { useHistory } from "react-router-dom";
 // import "mdb-react-ui-kit/dist/css/mdb.min.css";
 // import "@fortawesome/fontawesome-free/css/all.min.css";
 
-export const ClientsGenerator = (quantity) => {
+export const prepareData = (clients) => {
   const items = [];
-  for (let i = 0; i < quantity; i++) {
-    items.push({ id: i, name: `Client name ${i}`, price: 2100 + i });
-  }
+  clients.forEach(function (client) {
+    items.push({ id: client.clientID, name: client.sortName, price: 2100 });
+  });
   return items;
 };
-
-const clinets = ClientsGenerator(100);
 
 const customButton = (cell, row) => {
   return (
@@ -52,7 +44,6 @@ const customButton = (cell, row) => {
     </div>
   );
 };
-
 
 const columns = [
   {
@@ -78,7 +69,23 @@ const columns = [
 ];
 
 function AdvisorProfile() {
+  const history = useHistory();
+  const dispatch = useDispatch();
+  const { token } = useSelector((state) => state.auth);
   const { userinfo } = useSelector((state) => state.advisor);
+  const { clients } = useSelector((state) => state.clients);
+
+  useEffect(() => {
+    dispatch(getClients(userinfo.advisorID));
+  }, [dispatch]);
+
+  useEffect(() => {
+    if (token === null) {
+      history.push("/AdvisorLogin");
+    }
+  }, [token]);
+
+  let clientsdata = prepareData(clients);
   return (
     <section style={{ backgroundColor: "#eee" }}>
       <MDBContainer className="py-5">
@@ -86,10 +93,10 @@ function AdvisorProfile() {
           <MDBCol lg="4">
             <MDBCard className="mb-4">
               <MDBCardBody className="text-center">
-                <MDBCardImage 
+                <MDBCardImage
                   src="/avatar.png"
-                  alt=""
-                  style={{ width: "70px" }}
+                  alt="avatar"
+                  style={{ width: "250px" }}
                   fluid
                 />
                 <p className="text-muted mb-1">
@@ -198,9 +205,8 @@ function AdvisorProfile() {
             <BootstrapTable
               bootstrap4
               keyField="id"
-              data={clinets}
+              data={clientsdata}
               columns={columns}
-              bordered
               hover
               pagination={paginationFactory({
                 sizePerPage: 10,

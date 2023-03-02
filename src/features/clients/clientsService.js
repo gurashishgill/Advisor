@@ -19,21 +19,18 @@ const getClients = async (advisorID) => {
 };
 
 // Delete user goal
-// const deleteGoal = async (goalId, token) => {
-//   const config = {
-//     headers: {
-//       Authorization: `Bearer ${token}`,
-//     },
-//   };
+const deleteClient = async (clientId) => {
+  const response = await axios.delete(
+    `https://localhost:7075/api/Users/deleteClient?clientId=${clientId}`
+  );
 
-//   const response = await axios.delete(API_URL + goalId, config);
-
-//   return response.data;
-// };
+  return response.data;
+};
 
 const clientsService = {
   createClient,
   getClients,
+  deleteClient,
 };
 
 export default clientsService;

@@ -26,9 +26,9 @@ function AdvisorDashboard2() {
     }
   }, [token]);
 
-  useEffect(() => {
-    dispatch(getUserInfo());
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(getUserInfo());
+  // }, [dispatch]);
 
   useEffect(() => {
     if (isError) {

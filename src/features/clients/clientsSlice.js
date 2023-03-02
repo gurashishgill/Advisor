@@ -46,23 +46,22 @@ export const getClients = createAsyncThunk(
 );
 
 // Delete client
-// export const deleteClient = createAsyncThunk(
-//   "client/delete",
-//   async (id, thunkAPI) => {
-//     try {
-//       const token = thunkAPI.getState().auth.user.token;
-//       return await goalService.deleteGoal(id, token);
-//     } catch (error) {
-//       const message =
-//         (error.response &&
-//           error.response.data &&
-//           error.response.data.message) ||
-//         error.message ||
-//         error.toString();
-//       return thunkAPI.rejectWithValue(message);
-//     }
-//   }
-// );
+export const deleteClient = createAsyncThunk(
+  "client/delete",
+  async (id, thunkAPI) => {
+    try {
+      return await clientsService.deleteClient(id);
+    } catch (error) {
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString();
+      return thunkAPI.rejectWithValue(message);
+    }
+  }
+);
 
 export const clientsSlice = createSlice({
   name: "clients",
@@ -102,22 +101,22 @@ export const clientsSlice = createSlice({
         state.isLoading = false;
         state.isError = true;
         state.message = action.payload;
+      })
+      .addCase(deleteClient.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(deleteClient.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.isSuccess = true;
+        state.clients = state.clients.filter(
+          (client) => client.clientID !== action.meta.arg
+        );
+      })
+      .addCase(deleteClient.rejected, (state, action) => {
+        state.isLoading = false;
+        state.isError = true;
+        state.message = action.payload;
       });
-    //   .addCase(deleteGoal.pending, (state) => {
-    //     state.isLoading = true;
-    //   })
-    //   .addCase(deleteGoal.fulfilled, (state, action) => {
-    //     state.isLoading = false;
-    //     state.isSuccess = true;
-    //     state.goals = state.goals.filter(
-    //       (goal) => goal._id !== action.payload.id
-    //     );
-    //   })
-    //   .addCase(deleteGoal.rejected, (state, action) => {
-    //     state.isLoading = false;
-    //     state.isError = true;
-    //     state.message = action.payload;
-    //   });
   },
 });
 
