@@ -29,7 +29,10 @@ function DashboardNavigationBar() {
               </Nav.Link>
             </div>
             <div className="nav_item_2">
-              <NavDropdown title={userinfo.email} id="navbarScrollingDropdown">
+              <NavDropdown
+                title={userinfo.sortName}
+                id="navbarScrollingDropdown"
+              >
                 <NavDropdown.Item href="/advisor/profile">
                   Profile
                 </NavDropdown.Item>

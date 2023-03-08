@@ -1,4 +1,5 @@
 import axios from "axios";
+import { async } from "q";
 
 // Create new client
 const createClient = async (clientData) => {
@@ -27,10 +28,20 @@ const deleteClient = async (clientId) => {
   return response.data;
 };
 
+// Get client info
+const getClientInfo = async (clientId) => {
+  const response = await axios.get(
+    `https://localhost:7075/api/Users/getClientInfo?clientId=${clientId}`
+  );
+
+  return response.data;
+};
+
 const clientsService = {
   createClient,
   getClients,
   deleteClient,
+  getClientInfo,
 };
 
 export default clientsService;

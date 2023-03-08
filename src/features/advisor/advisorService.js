@@ -1,15 +1,7 @@
 import axios from "axios";
 
-// const API_URL = "/api/goals/";
-
 // Create new client
 const createClient = async (clientdata) => {
-  // const config = {
-  //   headers: {
-  //     Authorization: `Bearer ${token}`,
-  //   },
-  // };
-
   const response = await axios.post(
     "https://localhost:7075/api/Users/addClient",
     clientdata
@@ -20,12 +12,6 @@ const createClient = async (clientdata) => {
 
 // Get user Details
 const getUserDetails = async (token) => {
-  // const config = {
-  //   headers: {
-  //     Authorization: `Bearer ${token}`,
-  //   },
-  // };
-
   const response = await axios.get(
     `https://localhost:7075/api/Users/user?token=${token}`
   );
@@ -48,26 +34,21 @@ const getClientsofAdvisor = async (advisorid) => {
   return response.data;
 };
 
-// Delete user goal
-// const deleteGoal = async (goalId, token) => {
-//   const config = {
-//     headers: {
-//       Authorization: `Bearer ${token}`,
-//     },
-//   };
-
-//   const response = await axios.delete(API_URL + goalId, config);
-
-//   return response.data;
-// };
+// Update advisor info
+const updateAdvisor = async (advisorId, newData) => {
+  const response = await axios.put(
+    `https://localhost:7075/api/Users/updateAdvisor?id=${advisorId}`,
+    newData
+  );
+  return response.data;
+};
 
 const advisorService = {
-  // createGoal,
   getUserDetails,
   detailsfromlocal,
   createClient,
   getClientsofAdvisor,
-  // deleteGoal,
+  updateAdvisor,
 };
 
 export default advisorService;

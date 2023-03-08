@@ -79,13 +79,7 @@ function AdvisorDashboard2() {
             </div>
           </div>
           <div className="dashboard2_bottom">
-            <Tabs>
-              <TabList></TabList>
-
-              <TabPanel>
-                <ClientListTable />
-              </TabPanel>
-            </Tabs>
+            <ClientListTable />
           </div>
         </div>
       </div>

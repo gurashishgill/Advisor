@@ -1,5 +1,4 @@
-import React from "react";
-
+import React, { useEffect } from "react";
 import {
   MDBCol,
   MDBContainer,
@@ -8,22 +7,13 @@ import {
   MDBCardText,
   MDBCardBody,
   MDBCardImage,
-  MDBBtn,
-  MDBBreadcrumb,
-  MDBBreadcrumbItem,
-  MDBProgress,
-  MDBProgressBar,
-  MDBIcon,
-  MDBListGroup,
-  MDBListGroupItem,
 } from "mdb-react-ui-kit";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { getClientInfo } from "../../features/clients/clientsSlice";
 import "./ClientProfile.css";
-
 import paginationFactory from "react-bootstrap-table2-paginator";
 import BootstrapTable from "react-bootstrap-table-next";
-// import "mdb-react-ui-kit/dist/css/mdb.min.css";
-// import "@fortawesome/fontawesome-free/css/all.min.css";
+import { useHistory, useParams } from "react-router-dom";
 
 export const ClientsGenerator = (quantity) => {
   const items = [];
@@ -34,8 +24,6 @@ export const ClientsGenerator = (quantity) => {
 };
 
 const clinets = ClientsGenerator(100);
-
-
 
 const columns = [
   {
@@ -61,11 +49,26 @@ const columns = [
     dataField: "date",
     text: "Inception Date",
     sort: true,
-  }
+  },
 ];
 
 function ClientProfile() {
-  const { userinfo } = useSelector((state) => state.advisor);
+  const history = useHistory();
+  const dispatch = useDispatch();
+  const { clientid } = useParams();
+  const { token } = useSelector((state) => state.auth);
+  const { client } = useSelector((state) => state.clients);
+
+  useEffect(() => {
+    dispatch(getClientInfo(clientid));
+  }, [dispatch]);
+
+  useEffect(() => {
+    if (token === null) {
+      history.push("/AdvisorLogin");
+    }
+  }, [token]);
+
   return (
     <section style={{ backgroundColor: "#eee" }}>
       <MDBContainer className="py-5">
@@ -76,13 +79,11 @@ function ClientProfile() {
                 <MDBCardImage
                   src="/avatar.png"
                   alt=""
-                  style={{ width : "70px" }}
+                  style={{ width: "250px" }}
                   fluid
                 />
-                <p className="text-muted mb-1">
-                  {userinfo.firstName} {userinfo.lastName}
-                </p>
-                {userinfo.roleID == 2 ? (
+                <p className="text-muted mb-1">{client.firstName}</p>
+                {client.roleID == 2 ? (
                   <p className="text-mute mb-4">Client</p>
                 ) : (
                   <p className="text-muted">Advisor</p>
@@ -106,7 +107,7 @@ function ClientProfile() {
                   </MDBCol>
                   <MDBCol sm="9">
                     <MDBCardText className="text-muted">
-                      {userinfo.firstName} {userinfo.lastName}
+                      {client.firstName}
                     </MDBCardText>
                   </MDBCol>
                 </MDBRow>
@@ -117,7 +118,7 @@ function ClientProfile() {
                   </MDBCol>
                   <MDBCol sm="9">
                     <MDBCardText className="text-muted">
-                      {userinfo.email}
+                      {client.email}
                     </MDBCardText>
                   </MDBCol>
                 </MDBRow>
@@ -128,7 +129,7 @@ function ClientProfile() {
                   </MDBCol>
                   <MDBCol sm="9">
                     <MDBCardText className="text-muted">
-                      {userinfo.phone}
+                      {client.phone}
                     </MDBCardText>
                   </MDBCol>
                 </MDBRow>
@@ -139,7 +140,7 @@ function ClientProfile() {
                   </MDBCol>
                   <MDBCol sm="9">
                     <MDBCardText className="text-muted">
-                      {userinfo.city}
+                      {client.city}
                     </MDBCardText>
                   </MDBCol>
                 </MDBRow>
@@ -150,7 +151,7 @@ function ClientProfile() {
                   </MDBCol>
                   <MDBCol sm="9">
                     <MDBCardText className="text-muted">
-                      {userinfo.state}
+                      {client.state}
                     </MDBCardText>
                   </MDBCol>
                 </MDBRow>
@@ -161,7 +162,7 @@ function ClientProfile() {
                   </MDBCol>
                   <MDBCol sm="9">
                     <MDBCardText className="text-muted">
-                      {userinfo.address}
+                      {client.address}
                     </MDBCardText>
                   </MDBCol>
                 </MDBRow>
@@ -172,7 +173,7 @@ function ClientProfile() {
                   </MDBCol>
                   <MDBCol sm="9">
                     <MDBCardText className="text-muted">
-                      {userinfo.company}
+                      {client.company}
                     </MDBCardText>
                   </MDBCol>
                 </MDBRow>

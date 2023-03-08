@@ -3,6 +3,7 @@ import clientsService from "./clientsService";
 
 const initialState = {
   clients: [],
+  client: {},
   isError: false,
   isSuccess: false,
   isLoading: false,
@@ -51,6 +52,24 @@ export const deleteClient = createAsyncThunk(
   async (id, thunkAPI) => {
     try {
       return await clientsService.deleteClient(id);
+    } catch (error) {
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString();
+      return thunkAPI.rejectWithValue(message);
+    }
+  }
+);
+
+// Get Client Info
+export const getClientInfo = createAsyncThunk(
+  "client/get",
+  async (id, thunkAPI) => {
+    try {
+      return await clientsService.getClientInfo(id);
     } catch (error) {
       const message =
         (error.response &&
@@ -113,6 +132,19 @@ export const clientsSlice = createSlice({
         );
       })
       .addCase(deleteClient.rejected, (state, action) => {
+        state.isLoading = false;
+        state.isError = true;
+        state.message = action.payload;
+      })
+      .addCase(getClientInfo.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(getClientInfo.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.isSuccess = true;
+        state.client = action.payload;
+      })
+      .addCase(getClientInfo.rejected, (state, action) => {
         state.isLoading = false;
         state.isError = true;
         state.message = action.payload;

@@ -7,6 +7,7 @@ import {
   MDBCardText,
   MDBCardBody,
   MDBCardImage,
+  MDBBtn,
 } from "mdb-react-ui-kit";
 import "./AdvisorProfile.css";
 import { BsEye } from "react-icons/bs";
@@ -15,6 +16,8 @@ import BootstrapTable from "react-bootstrap-table-next";
 import { useSelector, useDispatch } from "react-redux";
 import { getClients, reset } from "../../features/clients/clientsSlice";
 import { useHistory } from "react-router-dom";
+import EditAdvisorProfile from "../EditAdvisorProfile/EditAdvisorProfile";
+import Alert from "@mui/material/Alert";
 // import "mdb-react-ui-kit/dist/css/mdb.min.css";
 // import "@fortawesome/fontawesome-free/css/all.min.css";
 
@@ -26,54 +29,55 @@ export const prepareData = (clients) => {
   return items;
 };
 
-const customButton = (cell, row) => {
-  return (
-    <div className="custom_button_container">
-      <div
-        style={{
-          backgroundColor: "#0D6EFD",
-          color: "#ffffff",
-          fontSize: "20px",
-          padding: "2px 7px",
-          borderRadius: "5px",
-          cursor: "pointer",
-        }}
-      >
-        <BsEye />
-      </div>
-    </div>
-  );
-};
-
-const columns = [
-  {
-    dataField: "id",
-    text: "Client ID",
-    sort: true,
-  },
-  {
-    dataField: "name",
-    text: "Client Name",
-    sort: true,
-  },
-  {
-    dataField: "price",
-    text: "Investment",
-    sort: true,
-  },
-  {
-    dataField: "action",
-    text: "Actions",
-    formatter: customButton,
-  },
-];
-
 function AdvisorProfile() {
+  const [modalShow, setModalShow] = useState(false);
   const history = useHistory();
   const dispatch = useDispatch();
   const { token } = useSelector((state) => state.auth);
   const { userinfo } = useSelector((state) => state.advisor);
   const { clients } = useSelector((state) => state.clients);
+
+  const columns = [
+    {
+      dataField: "id",
+      text: "Client ID",
+      sort: true,
+    },
+    {
+      dataField: "name",
+      text: "Client Name",
+      sort: true,
+    },
+    {
+      dataField: "price",
+      text: "Investment",
+      sort: true,
+    },
+    {
+      dataField: "view",
+      text: "View",
+      formatter: (cellContent, row) => {
+        return (
+          <div className="custom_button_container">
+            <div
+              style={{
+                backgroundColor: "#0D6EFD",
+                color: "#ffffff",
+                fontSize: "20px",
+                padding: "2px 7px",
+                borderRadius: "5px",
+                cursor: "pointer",
+              }}
+            >
+              <BsEye
+                onClick={() => history.push(`/client/profile/${row.id}`)}
+              />
+            </div>
+          </div>
+        );
+      },
+    },
+  ];
 
   useEffect(() => {
     dispatch(getClients(userinfo.advisorID));
@@ -87,7 +91,7 @@ function AdvisorProfile() {
 
   let clientsdata = prepareData(clients);
   return (
-    <section style={{ backgroundColor: "#eee" }}>
+    <section style={{ backgroundColor: "#eee", minHeight: "90vh" }}>
       <MDBContainer className="py-5">
         <MDBRow>
           <MDBCol lg="4">
@@ -96,7 +100,7 @@ function AdvisorProfile() {
                 <MDBCardImage
                   src="/avatar.png"
                   alt="avatar"
-                  style={{ width: "250px" }}
+                  style={{ width: "240px" }}
                   fluid
                 />
                 <p className="text-muted mb-1">
@@ -108,12 +112,11 @@ function AdvisorProfile() {
                   <p className="text-muted">Client</p>
                 )}
 
-                {/* <div className="d-flex justify-content-center mb-2">
-                  <MDBBtn>Follow</MDBBtn>
-                  <MDBBtn outline className="ms-1">
-                    Message
-                  </MDBBtn>
-                </div> */}
+                <div className="">
+                  <button onClick={() => setModalShow(true)}>
+                    Edit profile
+                  </button>
+                </div>
               </MDBCardBody>
             </MDBCard>
           </MDBCol>
@@ -200,22 +203,29 @@ function AdvisorProfile() {
             </MDBCard>
           </MDBCol>
         </MDBRow>
-        <MDBRow>
-          <MDBCard>
-            <BootstrapTable
-              bootstrap4
-              keyField="id"
-              data={clientsdata}
-              columns={columns}
-              hover
-              pagination={paginationFactory({
-                sizePerPage: 10,
-                hideSizePerPage: true,
-              })}
-            ></BootstrapTable>
-          </MDBCard>
-        </MDBRow>
+        {clients.length == 0 ? (
+          <Alert variant="outlined" severity="warning">
+            You have no clients — start adding!
+          </Alert>
+        ) : (
+          <MDBRow>
+            <MDBCard>
+              <BootstrapTable
+                bootstrap4
+                keyField="id"
+                data={clientsdata}
+                columns={columns}
+                hover
+                pagination={paginationFactory({
+                  sizePerPage: 10,
+                  hideSizePerPage: true,
+                })}
+              ></BootstrapTable>
+            </MDBCard>
+          </MDBRow>
+        )}
       </MDBContainer>
+      <EditAdvisorProfile show={modalShow} onHide={() => setModalShow(false)} />
     </section>
   );
 }

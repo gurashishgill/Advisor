@@ -8,6 +8,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { getClients, deleteClient } from "../../features/clients/clientsSlice";
 import swal from "sweetalert";
 import AddClient from "../AddClient/AddClient";
+import { useHistory } from "react-router";
+import Alert from "@mui/material/Alert";
 
 export const prepareData = (clients) => {
   const items = [];
@@ -17,51 +19,8 @@ export const prepareData = (clients) => {
   return items;
 };
 
-const customButton = (cell, row) => {
-  return (
-    <div className="custom_button_container">
-      <div
-        style={{
-          backgroundColor: "#0D6EFD",
-          color: "#ffffff",
-          fontSize: "20px",
-          padding: "2px 7px",
-          borderRadius: "5px",
-          cursor: "pointer",
-        }}
-      >
-        <BsEye />
-      </div>
-      <div
-        style={{
-          backgroundColor: "#2ECA6A",
-          color: "#ffffff",
-          fontSize: "20px",
-          padding: "2px 7px",
-          borderRadius: "5px",
-          cursor: "pointer",
-        }}
-      >
-        <MdModeEditOutline />
-      </div>
-      <div
-        onClick={() => console.log(`${cell} ${row}`)}
-        style={{
-          backgroundColor: "#FF0000",
-          color: "#ffffff",
-          fontSize: "20px",
-          padding: "2px 7px",
-          borderRadius: "5px",
-          cursor: "pointer",
-        }}
-      >
-        <MdDeleteOutline />
-      </div>
-    </div>
-  );
-};
-
 function ClientListTable() {
+  const history = useHistory();
   const columns = [
     {
       dataField: "id",
@@ -94,7 +53,9 @@ function ClientListTable() {
                 cursor: "pointer",
               }}
             >
-              <BsEye />
+              <BsEye
+                onClick={() => history.push(`/client/profile/${row.id}`)}
+              />
             </div>
             <div
               style={{
@@ -137,7 +98,21 @@ function ClientListTable() {
   }, [dispatch]);
 
   const handleDelete = (clientId) => {
-    dispatch(deleteClient(clientId));
+    swal({
+      title: "Are you sure?",
+      text: "Your client will be deleted permanentally!",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    }).then((willDelete) => {
+      if (willDelete) {
+        dispatch(deleteClient(clientId)).then(() => {
+          swal("Your client has been deleted!", {
+            icon: "success",
+          });
+        });
+      }
+    });
   };
 
   let clientsdata = prepareData(clients);
@@ -147,19 +122,26 @@ function ClientListTable() {
       <div className="clienttable_button_container">
         <button onClick={() => setModalShow(true)}>Add New Client</button>
       </div>
-      <BootstrapTable
-        bootstrap4
-        keyField="id"
-        data={clientsdata}
-        columns={columns}
-        striped
-        bordered
-        hover
-        pagination={paginationFactory({
-          sizePerPage: 5,
-          hideSizePerPage: true,
-        })}
-      ></BootstrapTable>
+      {clients.length === 0 ? (
+        <Alert variant="outlined" severity="warning">
+          You have no clients — start adding!
+        </Alert>
+      ) : (
+        <BootstrapTable
+          bootstrap4
+          keyField="id"
+          data={clientsdata}
+          columns={columns}
+          striped
+          bordered
+          hover
+          pagination={paginationFactory({
+            sizePerPage: 5,
+            hideSizePerPage: true,
+          })}
+        ></BootstrapTable>
+      )}
+
       <AddClient show={modalShow} onHide={() => setModalShow(false)} />
     </>
   );
